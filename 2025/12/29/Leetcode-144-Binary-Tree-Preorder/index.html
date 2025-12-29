@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根 preorder顺序图 三个order使用list  ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致之前的遍历结果">
+    <meta name="description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根    preorder顺序图    三个order使用list   ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode-144-Binary-Tree-Preorder">
 <meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根 preorder顺序图 三个order使用list  ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致之前的遍历结果">
+<meta property="og:description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根    preorder顺序图    三个order使用list   ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png">
-<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/preorder.png">
-<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/listOrder.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/3.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/preorder.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/listOrder.png">
 <meta property="article:published_time" content="2025-12-29T16:11:41.000Z">
-<meta property="article:modified_time" content="2025-12-29T17:30:45.548Z">
+<meta property="article:modified_time" content="2025-12-29T17:43:12.942Z">
 <meta property="article:author" content="Baowen Liu">
 <meta property="article:tag" content="dfs">
 <meta property="article:tag" content="recursion">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png">
+<meta name="twitter:image" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/3.png">
   
   
   
@@ -403,10 +403,17 @@
                 
                 <h2 id="相似题目"><a href="#相似题目" class="headerlink" title="相似题目"></a>相似题目</h2><p>144 (preorder)、94 (inorder)、145 (postorder)</p>
 <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>前序preorder遍历的固定顺序是 <strong>根 → 左 → 右</strong>。<br>inorder: <strong>左 → 根 → 右</strong><br>postorder: <strong>左 → 右 → 根</strong><br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
-<li>preorder顺序图<br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/preorder.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
-<li>三个order使用list<br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/listOrder.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
+<li>前序preorder遍历的固定顺序是 <strong>根 → 左 → 右</strong>。<br>inorder: <strong>左 → 根 → 右</strong><br>postorder: <strong>左 → 右 → 根</strong></li>
 </ul>
+<img src="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/3.png" srcset="/leetcode-blog/img/loading.gif" lazyload class="">
+<ul>
+<li>preorder顺序图</li>
+</ul>
+<img src="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/preorder.png" srcset="/leetcode-blog/img/loading.gif" lazyload class="">
+<ul>
+<li>三个order使用list</li>
+</ul>
+<img src="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/listOrder.png" srcset="/leetcode-blog/img/loading.gif" lazyload class="">
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
 <li>在递归函数内部 <strong>每次 new 一个 List</strong>，会导致之前的遍历结果被丢失</li>
 <li>TreeNode 不是“树”，而是“节点”。树 &#x3D; 一堆 TreeNode 连起来</li>
