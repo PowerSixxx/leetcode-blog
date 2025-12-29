@@ -19,23 +19,27 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 用哈希表记录「值 -&gt; 下标」   遍历数组，每次看 target - nums[i] 在不在 map 里   在的话直接返回两个下标；不在就把当前值加入 map   模板题，很多 Two Sum 变种都能套这个写法  ❗ 易错点 &#x2F; 小坑 题目保证只有一个答案，所以找到后可以直接 return   不能先把所有数丢进 map 再找，否则会用到同一个元素两次   注">
+    <meta name="description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根 preorder顺序图 三个order使用list  ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致之前的遍历结果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1. Two Sum">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/index.html">
+<meta property="og:title" content="Leetcode-144-Binary-Tree-Preorder">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 用哈希表记录「值 -&gt; 下标」   遍历数组，每次看 target - nums[i] 在不在 map 里   在的话直接返回两个下标；不在就把当前值加入 map   模板题，很多 Two Sum 变种都能套这个写法  ❗ 易错点 &#x2F; 小坑 题目保证只有一个答案，所以找到后可以直接 return   不能先把所有数丢进 map 再找，否则会用到同一个元素两次   注">
+<meta property="og:description" content="相似题目144 (preorder)、94 (inorder)、145 (postorder) 🧠 思路总结 前序preorder遍历的固定顺序是 根 → 左 → 右。inorder: 左 → 根 → 右postorder: 左 → 右 → 根 preorder顺序图 三个order使用list  ❗ 易错点 &#x2F; 小坑 在递归函数内部 每次 new 一个 List，会导致之前的遍历结果">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-10T05:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-10T07:29:52.767Z">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/preorder.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/listOrder.png">
+<meta property="article:published_time" content="2025-12-29T16:11:41.000Z">
+<meta property="article:modified_time" content="2025-12-29T17:30:45.548Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Easy">
-<meta property="article:tag" content="HashMap">
+<meta property="article:tag" content="dfs">
+<meta property="article:tag" content="recursion">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://powersixxx.github.io/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png">
   
   
   
-  <title>LeetCode 1. Two Sum - Baowen Leetcode Notes</title>
+  <title>Leetcode-144-Binary-Tree-Preorder - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode 1. Two Sum"></span>
+            <span id="subtitle" data-typed-text="Leetcode-144-Binary-Tree-Preorder"></span>
           
         </div>
 
@@ -212,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-10 00:00" pubdate>
-          2025年12月10日 凌晨
+        <time datetime="2025-12-29 11:11" pubdate>
+          2025年12月29日 上午
         </time>
       </span>
     
@@ -224,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          449 字
+          595 字
         
       </span>
     
@@ -235,7 +239,7 @@
         
         
         
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -306,17 +310,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Array"
         id="heading-4410ec34d9e6c1a68100ca0ce033fb17" role="tab" data-toggle="collapse" href="#collapse-4410ec34d9e6c1a68100ca0ce033fb17"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Array
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
+      <div class="category-collapse collapse " id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
            role="tabpanel" aria-labelledby="heading-4410ec34d9e6c1a68100ca0ce033fb17">
         
         
@@ -328,7 +332,7 @@
       
         <a href="/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/" title="LeetCode 1. Two Sum"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode 1. Two Sum</span>
         </a>
       
@@ -343,17 +347,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
         id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Binary Tree
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
+      <div class="category-collapse collapse show" id="collapse-ec47297e27d93f23f404ea8a4f690619"
            role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
         
         
@@ -365,7 +369,7 @@
       
         <a href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/" title="Leetcode-144-Binary-Tree-Preorder"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Leetcode-144-Binary-Tree-Preorder</span>
         </a>
       
@@ -392,37 +396,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 1. Two Sum</h1>
+            <h1 id="seo-header">Leetcode-144-Binary-Tree-Preorder</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>用哈希表记录「值 -&gt; 下标」  </li>
-<li>遍历数组，每次看 <code>target - nums[i]</code> 在不在 map 里  </li>
-<li>在的话直接返回两个下标；不在就把当前值加入 map  </li>
-<li>模板题，很多 Two Sum 变种都能套这个写法</li>
+                <h2 id="相似题目"><a href="#相似题目" class="headerlink" title="相似题目"></a>相似题目</h2><p>144 (preorder)、94 (inorder)、145 (postorder)</p>
+<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
+<li>前序preorder遍历的固定顺序是 <strong>根 → 左 → 右</strong>。<br>inorder: <strong>左 → 根 → 右</strong><br>postorder: <strong>左 → 右 → 根</strong><br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/3.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
+<li>preorder顺序图<br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/preorder.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
+<li>三个order使用list<br><img src="/leetcode-blog/source/_posts/Leetcode-144-Binary-Tree-Preorder/listOrder.png" srcset="/leetcode-blog/img/loading.gif" lazyload></li>
 </ul>
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>题目保证只有一个答案，所以找到后可以直接 <code>return</code>  </li>
-<li>不能先把所有数丢进 map 再找，否则会用到同一个元素两次  </li>
-<li>注意：返回的是 <strong>下标</strong>，不是数值本身</li>
+<li>在递归函数内部 <strong>每次 new 一个 List</strong>，会导致之前的遍历结果被丢失</li>
+<li>TreeNode 不是“树”，而是“节点”。树 &#x3D; 一堆 TreeNode 连起来</li>
+<li>Base case: <code>root == null</code></li>
+<li>为什么要判断<code>root == null</code>?  <ol>
+<li>叶子节点的 left &#x2F; right 本来就是 null  </li>
+<li>null 表示：这条路走到头了  </li>
+<li>这是递归的 终止条件</li>
+</ol>
+</li>
 </ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
-        for (int i = 0; i &lt; nums.length; i++) {
-            int need = target - nums[i];
-            if (map.containsKey(need)) {
-                return new int[]{map.get(need), i};
-            }
-            map.put(nums[i], i);
-        }
-        return new int[]{-1, -1};
-    }
-}
-</code></pre>
-
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>    <span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title function_">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> res;<br>        &#125;<br>        res.add(root.val);                 <span class="hljs-comment">// 根</span><br>        preorderTraversal(root.left);      <span class="hljs-comment">// 左</span><br>        preorderTraversal(root.right);     <span class="hljs-comment">// 右</span><br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -445,7 +441,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/Array/" class="category-chain-item">Array</a>
+  <a href="/leetcode-blog/categories/LeetCode/Binary-Tree/" class="category-chain-item">Binary Tree</a>
   
   
 
@@ -462,9 +458,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/HashMap/" class="print-no-link">#HashMap</a>
+        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
       
-        <a href="/leetcode-blog/tags/Easy/" class="print-no-link">#Easy</a>
+        <a href="/leetcode-blog/tags/recursion/" class="print-no-link">#recursion</a>
       
     </div>
   
@@ -476,8 +472,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 1. Two Sum</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/</div>
+      <div>Leetcode-144-Binary-Tree-Preorder</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/</div>
     </div>
     <div class="license-meta">
       
@@ -489,7 +485,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月10日</div>
+          <div>2025年12月29日</div>
         </div>
       
       
@@ -521,15 +517,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/" title="Leetcode-144-Binary-Tree-Preorder">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode-144-Binary-Tree-Preorder</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/" title="LeetCode 1. Two Sum">
+                        <span class="hidden-mobile">LeetCode 1. Two Sum</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
