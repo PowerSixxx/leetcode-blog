@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Interview:ProductExceptSelf</title>
+    <link href="/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/"/>
+    <url>/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/</url>
+    
+    <content type="html"><![CDATA[<h2 id="❓-问题"><a href="#❓-问题" class="headerlink" title="❓ 问题"></a>❓ 问题</h2><p>给你一个整数数组 nums，你要生成一个新的数组 res，满足：<br>res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。</p><p><strong>限制条件：</strong>  </p><ol><li>不能用除法  </li><li>时间复杂度要 O(n)</li></ol><h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote><p>对任意一个位置i:<br>当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积</p></blockquote><p>使用前缀 &amp; 后缀法</p><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  <span class="hljs-comment">// Left</span><br>  res[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">// it is the most left element</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>      res[i] = res[i - <span class="hljs-number">1</span>] * nums[i - <span class="hljs-number">1</span>];<br>  &#125;<br>  <span class="hljs-comment">// Right</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>      res[i] *= right;<br>      right *= nums[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>Array</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Prefix</tag>
+      
+      <tag>Suffix</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode-144-Binary-Tree-Preorder</title>
     <link href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/"/>
     <url>/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/</url>

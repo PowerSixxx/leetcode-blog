@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 用哈希表记录「值 -&gt; 下标」   遍历数组，每次看 target - nums[i] 在不在 map 里   在的话直接返回两个下标；不在就把当前值加入 map   模板题，很多 Two Sum 变种都能套这个写法  ❗ 易错点 &#x2F; 小坑 题目保证只有一个答案，所以找到后可以直接 return   不能先把所有数丢进 map 再找，否则会用到同一个元素两次   注">
+    <meta name="description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1. Two Sum">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/index.html">
+<meta property="og:title" content="Interview:ProductExceptSelf">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 用哈希表记录「值 -&gt; 下标」   遍历数组，每次看 target - nums[i] 在不在 map 里   在的话直接返回两个下标；不在就把当前值加入 map   模板题，很多 Two Sum 变种都能套这个写法  ❗ 易错点 &#x2F; 小坑 题目保证只有一个答案，所以找到后可以直接 return   不能先把所有数丢进 map 再找，否则会用到同一个元素两次   注">
+<meta property="og:description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-10T05:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-10T07:29:52.767Z">
+<meta property="article:published_time" content="2026-01-10T21:12:02.000Z">
+<meta property="article:modified_time" content="2026-01-10T21:23:17.095Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Easy">
-<meta property="article:tag" content="HashMap">
+<meta property="article:tag" content="Prefix">
+<meta property="article:tag" content="Suffix">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 1. Two Sum - Baowen Leetcode Notes</title>
+  <title>Interview:ProductExceptSelf - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode 1. Two Sum"></span>
+            <span id="subtitle" data-typed-text="Interview:ProductExceptSelf"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-10 00:00" pubdate>
-          2025年12月10日 凌晨
+        <time datetime="2026-01-10 16:12" pubdate>
+          2026年1月10日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          449 字
+          476 字
         
       </span>
     
@@ -328,7 +328,7 @@
       
         <a href="/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/" title="Interview:ProductExceptSelf"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Interview:ProductExceptSelf</span>
         </a>
       
@@ -337,7 +337,7 @@
       
         <a href="/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/" title="LeetCode 1. Two Sum"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode 1. Two Sum</span>
         </a>
       
@@ -401,36 +401,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 1. Two Sum</h1>
+            <h1 id="seo-header">Interview:ProductExceptSelf</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>用哈希表记录「值 -&gt; 下标」  </li>
-<li>遍历数组，每次看 <code>target - nums[i]</code> 在不在 map 里  </li>
-<li>在的话直接返回两个下标；不在就把当前值加入 map  </li>
-<li>模板题，很多 Two Sum 变种都能套这个写法</li>
-</ul>
-<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>题目保证只有一个答案，所以找到后可以直接 <code>return</code>  </li>
-<li>不能先把所有数丢进 map 再找，否则会用到同一个元素两次  </li>
-<li>注意：返回的是 <strong>下标</strong>，不是数值本身</li>
-</ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
-        for (int i = 0; i &lt; nums.length; i++) {
-            int need = target - nums[i];
-            if (map.containsKey(need)) {
-                return new int[]{map.get(need), i};
-            }
-            map.put(nums[i], i);
-        }
-        return new int[]{-1, -1};
-    }
-}
-</code></pre>
+                <h2 id="❓-问题"><a href="#❓-问题" class="headerlink" title="❓ 问题"></a>❓ 问题</h2><p>给你一个整数数组 nums，你要生成一个新的数组 res，满足：<br>res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。</p>
+<p><strong>限制条件：</strong>  </p>
+<ol>
+<li>不能用除法  </li>
+<li>时间复杂度要 O(n)</li>
+</ol>
+<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote>
+<p>对任意一个位置i:<br>当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积</p>
+</blockquote>
+<p>使用前缀 &amp; 后缀法</p>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  <span class="hljs-comment">// Left</span><br>  res[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">// it is the most left element</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>      res[i] = res[i - <span class="hljs-number">1</span>] * nums[i - <span class="hljs-number">1</span>];<br>  &#125;<br>  <span class="hljs-comment">// Right</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>      res[i] *= right;<br>      right *= nums[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -471,9 +457,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/HashMap/" class="print-no-link">#HashMap</a>
+        <a href="/leetcode-blog/tags/Prefix/" class="print-no-link">#Prefix</a>
       
-        <a href="/leetcode-blog/tags/Easy/" class="print-no-link">#Easy</a>
+        <a href="/leetcode-blog/tags/Suffix/" class="print-no-link">#Suffix</a>
       
     </div>
   
@@ -485,8 +471,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 1. Two Sum</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2025/12/10/LeetCode-1-Two-Sum/</div>
+      <div>Interview:ProductExceptSelf</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/</div>
     </div>
     <div class="license-meta">
       
@@ -498,7 +484,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月10日</div>
+          <div>2026年1月10日</div>
         </div>
       
       
@@ -530,15 +516,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/" title="Leetcode-144-Binary-Tree-Preorder">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode-144-Binary-Tree-Preorder</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/" title="Leetcode-144-Binary-Tree-Preorder">
+                        <span class="hidden-mobile">Leetcode-144-Binary-Tree-Preorder</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
