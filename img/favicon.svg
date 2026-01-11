@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="25" fill="#1e293b"/>
+  <text x="42" y="82" font-family="Times New Roman, serif"
+        font-weight="bold" font-size="85" fill="white">L</text>
+  <text x="12" y="72" font-family="Times New Roman, serif"
+        font-weight="bold" font-size="85"
+        stroke="#1e293b" stroke-width="6" fill="none">B</text>
+  <text x="12" y="72" font-family="Times New Roman, serif"
+        font-weight="bold" font-size="85" fill="white">B</text>
+</svg>
