@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Leetcode-104-111-Max-Min-Depth-BT</title>
+    <link href="/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/"/>
+    <url>/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul><li>104: Max depth  <ul><li>递归 dfs：<ul><li>空节点返回 0</li><li>递归调用左子树和右子树</li><li>返回 max(left, right) + 1</li></ul></li></ul></li><li>111: Min depth<ul><li>root &#x3D;&#x3D; null → 0</li><li>只有一边为空 → 非空那边 + 1</li><li>两边都不空 → min(left, right) + 1</li></ul></li></ul><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>111: Min depth<ul><li>不能直接用 <code>min(left, right) + 1</code></li><li>如果一边是 null，必须走另一边</li><li>因为最小深度必须到“叶子”，不能走到空就停</li></ul></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 104. Maximum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> maxDepth(root.left);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> maxDepth(root.right);<br>    <span class="hljs-keyword">return</span> Math.max(left, right) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 111. Minimum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果左子树为空，必须走右子树</span><br>    <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.right) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果右子树为空，必须走左子树</span><br>    <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.left) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 两边都不为空，返回较小的 + 1</span><br>    <span class="hljs-keyword">return</span> Math.min(minDepth(root.left), minDepth(root.right)) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>Binary Tree</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>dfs</tag>
+      
+      <tag>recursion</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode-101-Symmetric-Tree</title>
     <link href="/leetcode-blog/2026/01/11/Leetcode-101-Symmetric-Tree/"/>
     <url>/leetcode-blog/2026/01/11/Leetcode-101-Symmetric-Tree/</url>
@@ -78,9 +107,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
