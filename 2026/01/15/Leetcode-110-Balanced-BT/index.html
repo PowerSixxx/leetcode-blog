@@ -19,15 +19,15 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+    <meta name="description" content="🧠 思路总结（3–6 句，只写怎么想） ❗ 易错点 &#x2F; 小坑 …  ✅ 代码（Java）&#x2F;&#x2F; ...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-104-111-Max-Min-Depth-BT">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/index.html">
+<meta property="og:title" content="Leetcode-110-Balanced-BT">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+<meta property="og:description" content="🧠 思路总结（3–6 句，只写怎么想） ❗ 易错点 &#x2F; 小坑 …  ✅ 代码（Java）&#x2F;&#x2F; ...">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-14T00:52:33.000Z">
-<meta property="article:modified_time" content="2026-01-14T01:12:29.199Z">
+<meta property="article:published_time" content="2026-01-15T16:41:35.000Z">
+<meta property="article:modified_time" content="2026-01-15T16:41:58.236Z">
 <meta property="article:author" content="Baowen Liu">
 <meta property="article:tag" content="dfs">
 <meta property="article:tag" content="recursion">
@@ -35,7 +35,7 @@
   
   
   
-  <title>Leetcode-104-111-Max-Min-Depth-BT - Baowen Leetcode Notes</title>
+  <title>Leetcode-110-Balanced-BT - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Leetcode-104-111-Max-Min-Depth-BT"></span>
+            <span id="subtitle" data-typed-text="Leetcode-110-Balanced-BT"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-13 19:52" pubdate>
-          2026年1月13日 晚上
+        <time datetime="2026-01-15 11:41" pubdate>
+          2026年1月15日 中午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          798 字
+          45 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          7 分钟
+          1 分钟
         
       </span>
     
@@ -383,7 +383,7 @@
       
         <a href="/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/" title="Leetcode-104-111-Max-Min-Depth-BT"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Leetcode-104-111-Max-Min-Depth-BT</span>
         </a>
       
@@ -392,7 +392,7 @@
       
         <a href="/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/" title="Leetcode-110-Balanced-BT"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Leetcode-110-Balanced-BT</span>
         </a>
       
@@ -465,39 +465,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Leetcode-104-111-Max-Min-Depth-BT</h1>
+            <h1 id="seo-header">Leetcode-110-Balanced-BT</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>104: Max depth  <ul>
-<li>递归 dfs：<ul>
-<li>空节点返回 0</li>
-<li>递归调用左子树和右子树</li>
-<li>返回 max(left, right) + 1</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>111: Min depth<ul>
-<li>root &#x3D;&#x3D; null → 0</li>
-<li>只有一边为空 → 非空那边 + 1</li>
-<li>两边都不空 → min(left, right) + 1</li>
-</ul>
-</li>
-</ul>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>（3–6 句，只写怎么想）</p>
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>111: Min depth<ul>
-<li>不能直接用 <code>min(left, right) + 1</code></li>
-<li>如果一边是 null，必须走另一边</li>
-<li>因为最小深度必须到“叶子”，不能走到空就停</li>
+<li>…</li>
 </ul>
-</li>
-</ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 104. Maximum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> maxDepth(root.left);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> maxDepth(root.right);<br>    <span class="hljs-keyword">return</span> Math.max(left, right) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 111. Minimum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果左子树为空，必须走右子树</span><br>    <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.right) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果右子树为空，必须走左子树</span><br>    <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.left) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 两边都不为空，返回较小的 + 1</span><br>    <span class="hljs-keyword">return</span> Math.min(minDepth(root.left), minDepth(root.right)) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">// ...
+</code></pre>
 
                 
               </div>
@@ -552,8 +530,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Leetcode-104-111-Max-Min-Depth-BT</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/</div>
+      <div>Leetcode-110-Balanced-BT</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/</div>
     </div>
     <div class="license-meta">
       
@@ -565,7 +543,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月13日</div>
+          <div>2026年1月15日</div>
         </div>
       
       
@@ -597,9 +575,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/" title="Leetcode-110-Balanced-BT">
+                      <a href="/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/" title="Leetcode-1071-GCD-of-Strings">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode-110-Balanced-BT</span>
+                        <span class="hidden-mobile">Leetcode-1071-GCD-of-Strings</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -607,8 +585,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/11/Leetcode-101-Symmetric-Tree/" title="Leetcode-101-Symmetric-Tree">
-                        <span class="hidden-mobile">Leetcode-101-Symmetric-Tree</span>
+                      <a href="/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/" title="Leetcode-104-111-Max-Min-Depth-BT">
+                        <span class="hidden-mobile">Leetcode-104-111-Max-Min-Depth-BT</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>Leetcode-1071-GCD-of-Strings</title>
+    <link href="/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/"/>
+    <url>/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ol><li>题目本质是在找一个最短重复单元，使它能重复拼接得到 str1 和 str2。  </li><li>如果两个字符串来自同一个重复单元，那么 <code>str1 + str2</code> 和 <code>str2 + str1</code> 的结果一定完全相同。</li><li>在确认结构一致后，问题就转化为：这个重复单元的长度是多少(最大公约数（GCD）)。</li></ol><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ol><li>最大公约字符串一定是前缀，不需要考虑中间子串</li><li>gcd 方法本质是欧几里得算法，递归结束条件是 b &#x3D;&#x3D; 0</li></ol><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">gcdOfStrings</span><span class="hljs-params">(String str1, String str2)</span> &#123;<br>        <span class="hljs-keyword">if</span> (!(str1 + str2).equals(str2 + str1)) &#123;<br>             <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">gcdLength</span> <span class="hljs-operator">=</span> gcd(str1.length(), str2.length());<br>        <span class="hljs-keyword">return</span> str1.substring(<span class="hljs-number">0</span>, gcdLength);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;<br>        <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> a;<br>        &#125;<br>        <span class="hljs-keyword">return</span> gcd(b, a % b);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>String</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode-110-Balanced-BT</title>
+    <link href="/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/"/>
+    <url>/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>（3–6 句，只写怎么想）</p><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>…</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">// ...</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>Binary Tree</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>recursion</tag>
+      
+      <tag>dfs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode-104-111-Max-Min-Depth-BT</title>
     <link href="/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/"/>
     <url>/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/</url>
@@ -22,9 +80,9 @@
     
     <tags>
       
-      <tag>dfs</tag>
-      
       <tag>recursion</tag>
+      
+      <tag>dfs</tag>
       
     </tags>
     
@@ -107,9 +165,9 @@
     
     <tags>
       
-      <tag>dfs</tag>
-      
       <tag>recursion</tag>
+      
+      <tag>dfs</tag>
       
     </tags>
     
