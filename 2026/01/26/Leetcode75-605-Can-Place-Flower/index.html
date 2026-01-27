@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+    <meta name="description" content="🧠 思路总结总共三种情况:  index &#x3D; 0时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) index &#x3D; flowerbed.length - 1时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) 中间的情况：i !&#x3D; 0, i !&#x3D; flowerbed.length - 1- flowerbe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-104-111-Max-Min-Depth-BT">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/index.html">
+<meta property="og:title" content="Leetcode75-605-Can-Place-Flower">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/26/Leetcode75-605-Can-Place-Flower/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+<meta property="og:description" content="🧠 思路总结总共三种情况:  index &#x3D; 0时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) index &#x3D; flowerbed.length - 1时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) 中间的情况：i !&#x3D; 0, i !&#x3D; flowerbed.length - 1- flowerbe">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-14T00:52:33.000Z">
-<meta property="article:modified_time" content="2026-01-14T01:12:29.199Z">
+<meta property="article:published_time" content="2026-01-27T04:08:40.000Z">
+<meta property="article:modified_time" content="2026-01-27T04:55:45.445Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="dfs">
-<meta property="article:tag" content="recursion">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Leetcode-104-111-Max-Min-Depth-BT - Baowen Leetcode Notes</title>
+  <title>Leetcode75-605-Can-Place-Flower - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Leetcode-104-111-Max-Min-Depth-BT"></span>
+            <span id="subtitle" data-typed-text="Leetcode75-605-Can-Place-Flower"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-13 19:52" pubdate>
-          2026年1月13日 晚上
+        <time datetime="2026-01-26 23:08" pubdate>
+          2026年1月26日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          798 字
+          748 字
         
       </span>
     
@@ -306,17 +306,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="75"
         id="heading-d09bf41544a3365a46c9077ebb5e35c3" role="tab" data-toggle="collapse" href="#collapse-d09bf41544a3365a46c9077ebb5e35c3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         75
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
+      <div class="category-collapse collapse show" id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
            role="tabpanel" aria-labelledby="heading-d09bf41544a3365a46c9077ebb5e35c3">
         
         
@@ -328,7 +328,7 @@
       
         <a href="/leetcode-blog/2026/01/26/Leetcode75-605-Can-Place-Flower/" title="Leetcode75-605-Can-Place-Flower"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Leetcode75-605-Can-Place-Flower</span>
         </a>
       
@@ -389,17 +389,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
         id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Binary Tree
         <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-ec47297e27d93f23f404ea8a4f690619"
+      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
            role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
         
         
@@ -420,7 +420,7 @@
       
         <a href="/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/" title="Leetcode-104-111-Max-Min-Depth-BT"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Leetcode-104-111-Max-Min-Depth-BT</span>
         </a>
       
@@ -502,40 +502,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Leetcode-104-111-Max-Min-Depth-BT</h1>
+            <h1 id="seo-header">Leetcode75-605-Can-Place-Flower</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>104: Max depth  <ul>
-<li>递归 dfs：<ul>
-<li>空节点返回 0</li>
-<li>递归调用左子树和右子树</li>
-<li>返回 max(left, right) + 1</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>111: Min depth<ul>
-<li>root &#x3D;&#x3D; null → 0</li>
-<li>只有一边为空 → 非空那边 + 1</li>
-<li>两边都不空 → min(left, right) + 1</li>
-</ul>
-</li>
-</ul>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>总共<strong>三种</strong>情况:</p>
+<ol>
+<li><code>index = 0</code>时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li>
+<li><code>index = flowerbed.length - 1</code>时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li>
+<li>中间的情况：<code>i != 0, i != flowerbed.length - 1</code><br>- flowerbed[i - 1] &#x3D;&#x3D; 0 &amp;&amp; flowerbed[i + 1] &#x3D;&#x3D; 0 此时可以种</li>
+</ol>
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>111: Min depth<ul>
-<li>不能直接用 <code>min(left, right) + 1</code></li>
-<li>如果一边是 null，必须走另一边</li>
-<li>因为最小深度必须到“叶子”，不能走到空就停</li>
+<li>边界处理：<ul>
+<li>数组开头 (i &#x3D;&#x3D; 0) 或结尾 (i &#x3D;&#x3D; flowerbed.length-1)：开头没有左邻居，结尾没有右邻居，要特别判断。</li>
 </ul>
 </li>
+<li>尽量不要统计连续 0 的数量再计算能放多少花。</li>
 </ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 104. Maximum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> maxDepth(root.left);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> maxDepth(root.right);<br>    <span class="hljs-keyword">return</span> Math.max(left, right) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 111. Minimum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果左子树为空，必须走右子树</span><br>    <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.right) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果右子树为空，必须走左子树</span><br>    <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.left) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 两边都不为空，返回较小的 + 1</span><br>    <span class="hljs-keyword">return</span> Math.min(minDepth(root.left), minDepth(root.right)) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">canPlaceFlowers</span><span class="hljs-params">(<span class="hljs-type">int</span>[] flowerbed, <span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; flowerbed.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (flowerbed[i] == <span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyLeft</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">0</span>) || (flowerbed[i - <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyRight</span> <span class="hljs-operator">=</span> (i == flowerbed.length - <span class="hljs-number">1</span>) || (flowerbed[i + <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-keyword">if</span> (emptyLeft &amp;&amp; emptyRight)&#123;<br>                    flowerbed[i] = <span class="hljs-number">1</span>;<br>                    count++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count &gt;= n;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -558,7 +543,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/Binary-Tree/" class="category-chain-item">Binary Tree</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/" class="category-chain-item">75</a>
   
   
 
@@ -575,9 +560,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/recursion/" class="print-no-link">#recursion</a>
+        <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
+        <a href="/leetcode-blog/tags/Greedy/" class="print-no-link">#Greedy</a>
       
     </div>
   
@@ -589,8 +574,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Leetcode-104-111-Max-Min-Depth-BT</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/13/Leetcode-104-111-Max-Min-Depth-BT/</div>
+      <div>Leetcode75-605-Can-Place-Flower</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/01/26/Leetcode75-605-Can-Place-Flower/</div>
     </div>
     <div class="license-meta">
       
@@ -602,7 +587,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月13日</div>
+          <div>2026年1月26日</div>
         </div>
       
       
@@ -634,18 +619,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/15/Leetcode-110-Balanced-BT/" title="Leetcode-110-Balanced-BT">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode-110-Balanced-BT</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/11/Leetcode-101-Symmetric-Tree/" title="Leetcode-101-Symmetric-Tree">
-                        <span class="hidden-mobile">Leetcode-101-Symmetric-Tree</span>
+                      <a href="/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/" title="Leetcode-1071-GCD-of-Strings">
+                        <span class="hidden-mobile">Leetcode-1071-GCD-of-Strings</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

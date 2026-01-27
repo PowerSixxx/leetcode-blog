@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Leetcode75-605-Can-Place-Flower</title>
+    <link href="/leetcode-blog/2026/01/26/Leetcode75-605-Can-Place-Flower/"/>
+    <url>/leetcode-blog/2026/01/26/Leetcode75-605-Can-Place-Flower/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>总共<strong>三种</strong>情况:</p><ol><li><code>index = 0</code>时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li><li><code>index = flowerbed.length - 1</code>时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li><li>中间的情况：<code>i != 0, i != flowerbed.length - 1</code><br>- flowerbed[i - 1] &#x3D;&#x3D; 0 &amp;&amp; flowerbed[i + 1] &#x3D;&#x3D; 0 此时可以种</li></ol><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>边界处理：<ul><li>数组开头 (i &#x3D;&#x3D; 0) 或结尾 (i &#x3D;&#x3D; flowerbed.length-1)：开头没有左邻居，结尾没有右邻居，要特别判断。</li></ul></li><li>尽量不要统计连续 0 的数量再计算能放多少花。</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">canPlaceFlowers</span><span class="hljs-params">(<span class="hljs-type">int</span>[] flowerbed, <span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; flowerbed.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (flowerbed[i] == <span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyLeft</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">0</span>) || (flowerbed[i - <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyRight</span> <span class="hljs-operator">=</span> (i == flowerbed.length - <span class="hljs-number">1</span>) || (flowerbed[i + <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-keyword">if</span> (emptyLeft &amp;&amp; emptyRight)&#123;<br>                    flowerbed[i] = <span class="hljs-number">1</span>;<br>                    count++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count &gt;= n;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Greedy</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode-1071-GCD-of-Strings</title>
     <link href="/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/"/>
     <url>/leetcode-blog/2026/01/26/Leetcode-1071-GCD-of-Strings/</url>
@@ -195,6 +224,8 @@
     <tags>
       
       <tag>HashMap</tag>
+      
+      <tag>Array</tag>
       
       <tag>Easy</tag>
       
