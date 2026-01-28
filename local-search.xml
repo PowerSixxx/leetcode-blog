@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Leetcode75-151-Reverse-Words</title>
+    <link href="/leetcode-blog/2026/01/27/Leetcode75-151-Reverse-Words/"/>
+    <url>/leetcode-blog/2026/01/27/Leetcode75-151-Reverse-Words/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结-1-Split"><a href="#🧠-思路总结-1-Split" class="headerlink" title="🧠 思路总结 1 (Split)"></a>🧠 思路总结 1 (Split)</h2><ul><li>把空格切分成<code>&quot;&quot;</code>，这样的话就能通过 <em><strong>长度</strong></em> 进行区分哪些是空格哪些不是</li><li>所以我们使用 <code>split(&quot; &quot;)</code> 按单个空格将字符串拆分成数组</li><li>连续空格会被切分成 空字符串 <code>&quot;&quot;</code></li><li>使用 StringBuilder 拼接结果，最后用 <code>trim()</code> 去掉多余空格</li></ul><blockquote><p><em><strong>举个例子：</strong></em><br>s &#x3D; <code>&quot;  hello   world  &quot;</code><br>切完后: parts &#x3D; <code>[&quot;&quot;, &quot;&quot;, &quot;hello&quot;, &quot;&quot;, &quot;&quot;, &quot;world&quot;, &quot;&quot;, &quot;&quot;]</code></p></blockquote><h2 id="🧠-思路总结-2-Two-Pointers"><a href="#🧠-思路总结-2-Two-Pointers" class="headerlink" title="🧠 思路总结 2 (Two Pointers)"></a>🧠 思路总结 2 (Two Pointers)</h2><ul><li><p>快指针：想要获取的元素</p></li><li><p>慢指针：告诉更新在哪里（新的位置）</p><blockquote><p>思路：  </p><ol><li>整体反转</li><li>每个单词反转</li><li>快慢指针去空格</li></ol></blockquote></li><li><p>流程example：<br><code>s = &quot;  hello   world  &quot;</code>  </p><ol><li>转 char[] : “ hello world “</li><li>反转整个数组 : “ dlrow olleh “</li><li>反转每个单词 : “ world hello “</li><li>快慢指针去空格 → “world hello”</li></ol></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">reverseWords</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-comment">// 用 split(&quot; &quot;) 按空格切, 跳过空字符串</span><br>        String[] parts = s.split(<span class="hljs-string">&quot; &quot;</span>);<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> parts.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>            <span class="hljs-keyword">if</span> (parts[i].length() &gt; <span class="hljs-number">0</span>)&#123;<br>                sb.append(parts[i]).append(<span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString().trim();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">reverseWords</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-type">char</span>[] arr = s.toCharArray();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> arr.length;<br><br>        <span class="hljs-comment">// 反转整个String</span><br>        reverse(arr, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>);<br><br>        <span class="hljs-comment">// 反转每个单词</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">start</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (start &lt; n)&#123;<br>            <span class="hljs-comment">// 单词的情况：</span><br>            <span class="hljs-keyword">if</span> (arr[start] != <span class="hljs-string">&#x27; &#x27;</span>)&#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> start;<br>                <span class="hljs-keyword">while</span> (end &lt; n &amp;&amp; arr[end] != <span class="hljs-string">&#x27; &#x27;</span>)&#123;<br>                    end++; <span class="hljs-comment">// 单词结尾</span><br>                &#125;<br>                reverse(arr, start, end - <span class="hljs-number">1</span>); <span class="hljs-comment">// 反转单词</span><br>                start = end; <span class="hljs-comment">// 移动到下一个单词</span><br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                start++; <span class="hljs-comment">// 空格跳过</span><br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 快慢指针收缩空格</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, fast = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (fast &lt; n) &#123;<br>            <span class="hljs-keyword">while</span> (fast &lt; n &amp;&amp; arr[fast] == <span class="hljs-string">&#x27; &#x27;</span>)&#123;<br>                fast++; <span class="hljs-comment">// 跳过空格</span><br>            &#125;<br>            <span class="hljs-comment">// 复制单词</span><br>            <span class="hljs-keyword">while</span> (fast &lt; n &amp;&amp; arr[fast] != <span class="hljs-string">&#x27; &#x27;</span>)&#123;<br>                arr[slow] = arr[fast];<br>                slow++;<br>                fast++;<br>            &#125;<br>            <span class="hljs-comment">// 在单词前加空格</span><br>            <span class="hljs-keyword">if</span> (fast &lt; n)&#123;<br>                arr[slow] = <span class="hljs-string">&#x27; &#x27;</span>;<br>                slow++;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(arr, <span class="hljs-number">0</span>, slow).trim();<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">reverse</span><span class="hljs-params">(<span class="hljs-type">char</span>[] arr, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> &#123;<br>        <span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">tmp</span> <span class="hljs-operator">=</span> arr[left];<br>            arr[left] = arr[right];<br>            arr[right] = tmp;<br>            left++;<br>            right--;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>String</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode75-345-Reverse-Vowels</title>
     <link href="/leetcode-blog/2026/01/27/Leetcode75-345-Reverse-Vowels/"/>
     <url>/leetcode-blog/2026/01/27/Leetcode75-345-Reverse-Vowels/</url>
@@ -16,6 +47,8 @@
       <category>LeetCode</category>
       
       <category>75</category>
+      
+      <category>String</category>
       
     </categories>
     
@@ -45,6 +78,8 @@
       <category>LeetCode</category>
       
       <category>75</category>
+      
+      <category>String</category>
       
     </categories>
     
