@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Leetcode75-443-String-Compression</title>
+    <link href="/leetcode-blog/2026/01/31/Leetcode75-443-String-Compression/"/>
+    <url>/leetcode-blog/2026/01/31/Leetcode75-443-String-Compression/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>因为要求“You must write an algorithm that uses only constant extra space.”，所以可以考虑使用 <em><strong>双指针</strong></em> 的方法（一个指针进行读取，一个指针进行写入，类似于快慢指针）。用count记录当前字符出现的次数，如果下一个字符与当前不同的话，把当前字符写到chars[write]中。如果count &gt; 1，把count转化成字符串，之后将字符串转化成new character array。最后write就是最终数组的长度。</p><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>不需要sort，因为是连续字符</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compress</span><span class="hljs-params">(<span class="hljs-type">char</span>[] chars)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">write</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">read</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (read &lt; chars.length)&#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> chars[read];<br>            <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">while</span> (read &lt; chars.length &amp;&amp; chars[read] == curr)&#123;<br>                read++;<br>                count++;<br>            &#125;<br>            chars[write] = curr;<br>            write++;<br>            <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : Integer.toString(count).toCharArray())&#123;<br>                    chars[write] = c;<br>                    write++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> write;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>String</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-334-Increasing-Triplet-Subsequence</title>
     <link href="/leetcode-blog/2026/01/31/LeetCode75-334-Increasing-Triplet-Subsequence/"/>
     <url>/leetcode-blog/2026/01/31/LeetCode75-334-Increasing-Triplet-Subsequence/</url>
@@ -55,11 +86,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
