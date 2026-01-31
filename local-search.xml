@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-238-Product-of-Array-Except-Self</title>
+    <link href="/leetcode-blog/2026/01/31/LeetCode75-238-Product-of-Array-Except-Self/"/>
+    <url>/leetcode-blog/2026/01/31/LeetCode75-238-Product-of-Array-Except-Self/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>直觉上直接用除法： answer[i] &#x3D; nums[0]*…*nums[n−1] &#x2F; nums[i]<br>但是题目不允许用除法，但是上面的式子化简可以得到是：<br>nums[i]左边的所有数字相乘之后的结果再乘nums[i]右边的所有数字相乘之后的结果即是答案。<br>​</p><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>不需要给前后缀的结果单独开出来两个array，只需要开一个answer array之后更新prefix和suffix就行</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>        <span class="hljs-type">int</span>[] answer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">prefix</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            answer[i] = prefix;<br>            prefix = prefix * nums[i];<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">suffix</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>            answer[i] = suffix * answer[i];<br>            suffix = suffix * nums[i];<br>        &#125;<br>        <span class="hljs-keyword">return</span> answer;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Prefix</tag>
+      
+      <tag>Suffix</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode75-151-Reverse-Words</title>
     <link href="/leetcode-blog/2026/01/27/Leetcode75-151-Reverse-Words/"/>
     <url>/leetcode-blog/2026/01/27/Leetcode75-151-Reverse-Words/</url>
