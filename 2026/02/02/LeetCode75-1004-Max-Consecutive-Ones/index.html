@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
+    <meta name="description" content="🧠 思路总结这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。    区别：先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动  ❗ 易错点 &#x2F; 小坑 窗口大小是可变的，所以我们用while循环缩小左边界 更新最大大小的时候应该是在 窗口合法的时候  ✅">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Interview:ProductExceptSelf">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/index.html">
+<meta property="og:title" content="LeetCode75-1004-Max-Consecutive-Ones">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
+<meta property="og:description" content="🧠 思路总结这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。    区别：先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动  ❗ 易错点 &#x2F; 小坑 窗口大小是可变的，所以我们用while循环缩小左边界 更新最大大小的时候应该是在 窗口合法的时候  ✅">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-10T21:12:02.000Z">
-<meta property="article:modified_time" content="2026-01-10T21:23:17.095Z">
+<meta property="article:published_time" content="2026-02-02T21:55:40.000Z">
+<meta property="article:modified_time" content="2026-02-02T22:07:13.016Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Prefix">
-<meta property="article:tag" content="Suffix">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Sliding Window">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Interview:ProductExceptSelf - Baowen Leetcode Notes</title>
+  <title>LeetCode75-1004-Max-Consecutive-Ones - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Interview:ProductExceptSelf"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-1004-Max-Consecutive-Ones"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-10 16:12" pubdate>
-          2026年1月10日 下午
+        <time datetime="2026-02-02 16:55" pubdate>
+          2026年2月2日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          476 字
+          583 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -306,17 +306,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="75"
         id="heading-d09bf41544a3365a46c9077ebb5e35c3" role="tab" data-toggle="collapse" href="#collapse-d09bf41544a3365a46c9077ebb5e35c3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         75
         <span class="list-group-count">(9)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
+      <div class="category-collapse collapse show" id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
            role="tabpanel" aria-labelledby="heading-d09bf41544a3365a46c9077ebb5e35c3">
         
         
@@ -388,17 +388,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Sliding Window"
         id="heading-b30f13de2433305c806f54cfb0223e82" role="tab" data-toggle="collapse" href="#collapse-b30f13de2433305c806f54cfb0223e82"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Sliding Window
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-b30f13de2433305c806f54cfb0223e82"
+      <div class="category-collapse collapse show" id="collapse-b30f13de2433305c806f54cfb0223e82"
            role="tabpanel" aria-labelledby="heading-b30f13de2433305c806f54cfb0223e82">
         
         
@@ -410,7 +410,7 @@
       
         <a href="/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/" title="LeetCode75-1004-Max-Consecutive-Ones"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-1004-Max-Consecutive-Ones</span>
         </a>
       
@@ -502,17 +502,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Array"
         id="heading-4410ec34d9e6c1a68100ca0ce033fb17" role="tab" data-toggle="collapse" href="#collapse-4410ec34d9e6c1a68100ca0ce033fb17"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Array
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
+      <div class="category-collapse collapse " id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
            role="tabpanel" aria-labelledby="heading-4410ec34d9e6c1a68100ca0ce033fb17">
         
         
@@ -524,7 +524,7 @@
       
         <a href="/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/" title="Interview:ProductExceptSelf"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Interview:ProductExceptSelf</span>
         </a>
       
@@ -661,23 +661,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Interview:ProductExceptSelf</h1>
+            <h1 id="seo-header">LeetCode75-1004-Max-Consecutive-Ones</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="❓-问题"><a href="#❓-问题" class="headerlink" title="❓ 问题"></a>❓ 问题</h2><p>给你一个整数数组 nums，你要生成一个新的数组 res，满足：<br>res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。</p>
-<p><strong>限制条件：</strong>  </p>
-<ol>
-<li>不能用除法  </li>
-<li>时间复杂度要 O(n)</li>
-</ol>
-<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote>
-<p>对任意一个位置i:<br>当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积</p>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。  </p>
+<blockquote>
+<p>区别：<br>先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动</p>
 </blockquote>
-<p>使用前缀 &amp; 后缀法</p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  <span class="hljs-comment">// Left</span><br>  res[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">// it is the most left element</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>      res[i] = res[i - <span class="hljs-number">1</span>] * nums[i - <span class="hljs-number">1</span>];<br>  &#125;<br>  <span class="hljs-comment">// Right</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>      res[i] *= right;<br>      right *= nums[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
+<li>窗口大小是可变的，所以我们用while循环缩小左边界</li>
+<li>更新最大大小的时候应该是在 <em><strong>窗口合法的时候</strong></em></li>
+</ul>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">longestOnes</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">zeroCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxRes</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; right &lt; nums.length; right++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right] == <span class="hljs-number">0</span>) &#123;<br>                zeroCount++;<br>            &#125;<br>            <span class="hljs-keyword">while</span> (zeroCount &gt; k) &#123;<br>                <span class="hljs-keyword">if</span> (nums[left] == <span class="hljs-number">0</span>) &#123;<br>                    zeroCount--;<br>                &#125;<br>                left++;<br>            &#125;<br>            res = right - left + <span class="hljs-number">1</span>;<br>            maxRes = Math.max(res, maxRes);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxRes;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -700,8 +697,15 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/Array/" class="category-chain-item">Array</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/" class="category-chain-item">75</a>
   
+  
+    <span>></span>
+    
+  <a href="/leetcode-blog/categories/LeetCode/75/Sliding-Window/" class="category-chain-item">Sliding Window</a>
+  
+  
+
   
 
   
@@ -717,9 +721,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Prefix/" class="print-no-link">#Prefix</a>
+        <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/leetcode-blog/tags/Suffix/" class="print-no-link">#Suffix</a>
+        <a href="/leetcode-blog/tags/Sliding-Window/" class="print-no-link">#Sliding Window</a>
       
     </div>
   
@@ -731,8 +735,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Interview:ProductExceptSelf</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/</div>
+      <div>LeetCode75-1004-Max-Consecutive-Ones</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/</div>
     </div>
     <div class="license-meta">
       
@@ -744,7 +748,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月10日</div>
+          <div>2026年2月2日</div>
         </div>
       
       
@@ -776,18 +780,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/11/LeetCode-101-Symmetric-Tree/" title="LeetCode-101-Symmetric-Tree">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode-101-Symmetric-Tree</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2025/12/29/LeetCode-144-Binary-Tree-Preorder/" title="LeetCode-144-Binary-Tree-Preorder">
-                        <span class="hidden-mobile">LeetCode-144-Binary-Tree-Preorder</span>
+                      <a href="/leetcode-blog/2026/02/02/LeetCode75-1456-Max-Number-of-Vowels/" title="LeetCode75-1456-Max-Number-of-Vowels">
+                        <span class="hidden-mobile">LeetCode75-1456-Max-Number-of-Vowels</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
