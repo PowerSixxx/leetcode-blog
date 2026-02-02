@@ -19,21 +19,31 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/categories/index.html">
+    <meta name="description" content="🧠 思路总结❗ 易错点 &#x2F; 小坑 …  ✅ 代码（Java）&#x2F;&#x2F; ...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode75-643-Max-Avg-Subarray-I">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
+<meta property="og:description" content="🧠 思路总结❗ 易错点 &#x2F; 小坑 …  ✅ 代码（Java）&#x2F;&#x2F; ...">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-02T13:32:09.000Z">
+<meta property="article:modified_time" content="2026-02-02T13:32:09.314Z">
 <meta property="article:author" content="Baowen Liu">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>分类 - Baowen Leetcode Notes</title>
+  <title>LeetCode75-643-Max-Avg-Subarray-I - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -83,7 +93,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/leetcode-blog/">
@@ -189,9 +199,49 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="分类"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-643-Max-Avg-Subarray-I"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-02 08:32" pubdate>
+          2026年2月2日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          33 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -207,14 +257,14 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
 
 
 
@@ -227,22 +277,17 @@
     
     
     <div class="category row nomargin-x">
-      <a class="category-item collapsed
+      <a class="category-item 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="LeetCode"
         id="heading-071fda8ffed879b16c3308d2133bac46" role="tab" data-toggle="collapse" href="#collapse-071fda8ffed879b16c3308d2133bac46"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         LeetCode
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(14)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-        <a href="/leetcode-blog/categories/LeetCode/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>14</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-071fda8ffed879b16c3308d2133bac46"
+      <div class="category-collapse collapse show" id="collapse-071fda8ffed879b16c3308d2133bac46"
            role="tabpanel" aria-labelledby="heading-071fda8ffed879b16c3308d2133bac46">
         
         
@@ -255,7 +300,7 @@
       
         <a href="/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/" title="LeetCode75-643-Max-Avg-Subarray-I"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-643-Max-Avg-Subarray-I</span>
         </a>
       
@@ -274,14 +319,9 @@
         aria-expanded="false"
       >
         75
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(6)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/75/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>6</span>
-        </a>
       
       <div class="category-collapse collapse " id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
            role="tabpanel" aria-labelledby="heading-d09bf41544a3365a46c9077ebb5e35c3">
@@ -306,14 +346,9 @@
         aria-expanded="false"
       >
         Array
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/75/Array/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>3</span>
-        </a>
       
       <div class="category-collapse collapse " id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
            role="tabpanel" aria-labelledby="heading-4410ec34d9e6c1a68100ca0ce033fb17">
@@ -325,19 +360,19 @@
     
       
       
-        <a href="/leetcode-blog/2026/01/31/LeetCode75-334-Increasing-Triplet-Subsequence/" title="LeetCode75-334-Increasing-Triplet-Subsequence"
+        <a href="/leetcode-blog/2026/01/31/LeetCode75-238-Product-of-Array-Except-Self/" title="LeetCode75-238-Product-of-Array-Except-Self"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">LeetCode75-334-Increasing-Triplet-Subsequence</span>
+          <span class="category-post">LeetCode75-238-Product-of-Array-Except-Self</span>
         </a>
       
     
       
       
-        <a href="/leetcode-blog/2026/01/31/LeetCode75-238-Product-of-Array-Except-Self/" title="LeetCode75-238-Product-of-Array-Except-Self"
+        <a href="/leetcode-blog/2026/01/31/LeetCode75-334-Increasing-Triplet-Subsequence/" title="LeetCode75-334-Increasing-Triplet-Subsequence"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">LeetCode75-238-Product-of-Array-Except-Self</span>
+          <span class="category-post">LeetCode75-334-Increasing-Triplet-Subsequence</span>
         </a>
       
     
@@ -366,14 +401,9 @@
         aria-expanded="false"
       >
         String
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/75/String/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>3</span>
-        </a>
       
       <div class="category-collapse collapse " id="collapse-27118326006d3829667a400ad23d5d98"
            role="tabpanel" aria-labelledby="heading-27118326006d3829667a400ad23d5d98">
@@ -382,15 +412,6 @@
           
   <div class="category-post-list">
     
-    
-      
-      
-        <a href="/leetcode-blog/2026/01/31/LeetCode75-443-String-Compression/" title="LeetCode75-443-String-Compression"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">LeetCode75-443-String-Compression</span>
-        </a>
-      
     
       
       
@@ -410,81 +431,21 @@
         </a>
       
     
+      
+      
+        <a href="/leetcode-blog/2026/01/31/LeetCode75-443-String-Compression/" title="LeetCode75-443-String-Compression"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">LeetCode75-443-String-Compression</span>
+        </a>
+      
+    
   </div>
 
         
       </div>
     </div>
   
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
-        id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="false"
-      >
-        Binary Tree
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/Binary-Tree/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>4</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
-           role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/leetcode-blog/2026/01/15/LeetCode-110-Balanced-BT/" title="LeetCode-110-Balanced-BT"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">LeetCode-110-Balanced-BT</span>
-        </a>
-      
-    
-      
-      
-        <a href="/leetcode-blog/2026/01/13/LeetCode-104-111-Max-Min-Depth-BT/" title="LeetCode-104-111-Max-Min-Depth-BT"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">LeetCode-104-111-Max-Min-Depth-BT</span>
-        </a>
-      
-    
-      
-      
-        <a href="/leetcode-blog/2026/01/11/LeetCode-101-Symmetric-Tree/" title="LeetCode-101-Symmetric-Tree"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">LeetCode-101-Symmetric-Tree</span>
-        </a>
-      
-    
-      
-      
-        <a href="/leetcode-blog/2025/12/29/LeetCode-144-Binary-Tree-Preorder/" title="LeetCode-144-Binary-Tree-Preorder"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">LeetCode-144-Binary-Tree-Preorder</span>
-        </a>
-      
-    
-  </div>
-
         
       </div>
     </div>
@@ -499,14 +460,9 @@
         aria-expanded="false"
       >
         Array
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/Array/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>2</span>
-        </a>
       
       <div class="category-collapse collapse " id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
            role="tabpanel" aria-labelledby="heading-4410ec34d9e6c1a68100ca0ce033fb17">
@@ -545,19 +501,78 @@
     
     <div class="category-sub row nomargin-x">
       <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
+        id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
+        aria-expanded="false"
+      >
+        Binary Tree
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
+           role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/leetcode-blog/2026/01/11/LeetCode-101-Symmetric-Tree/" title="LeetCode-101-Symmetric-Tree"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">LeetCode-101-Symmetric-Tree</span>
+        </a>
+      
+    
+      
+      
+        <a href="/leetcode-blog/2026/01/13/LeetCode-104-111-Max-Min-Depth-BT/" title="LeetCode-104-111-Max-Min-Depth-BT"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">LeetCode-104-111-Max-Min-Depth-BT</span>
+        </a>
+      
+    
+      
+      
+        <a href="/leetcode-blog/2026/01/15/LeetCode-110-Balanced-BT/" title="LeetCode-110-Balanced-BT"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">LeetCode-110-Balanced-BT</span>
+        </a>
+      
+    
+      
+      
+        <a href="/leetcode-blog/2025/12/29/LeetCode-144-Binary-Tree-Preorder/" title="LeetCode-144-Binary-Tree-Preorder"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">LeetCode-144-Binary-Tree-Preorder</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="String"
         id="heading-27118326006d3829667a400ad23d5d98" role="tab" data-toggle="collapse" href="#collapse-27118326006d3829667a400ad23d5d98"
         aria-expanded="false"
       >
         String
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      
-        <a href="/leetcode-blog/categories/LeetCode/String/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>1</span>
-        </a>
       
       <div class="category-collapse collapse " id="collapse-27118326006d3829667a400ad23d5d98"
            role="tabpanel" aria-labelledby="heading-27118326006d3829667a400ad23d5d98">
@@ -589,11 +604,177 @@
 </div>
 
 
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LeetCode75-643-Max-Avg-Subarray-I</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
+<li>…</li>
+</ul>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">// ...
+</code></pre>
+
+                
               </div>
-            </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/leetcode-blog/categories/LeetCode/" class="category-chain-item">LeetCode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode75-643-Max-Avg-Subarray-I</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Baowen Liu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/leetcode-blog/2026/01/31/LeetCode75-443-String-Compression/" title="LeetCode75-443-String-Compression">
+                        <span class="hidden-mobile">LeetCode75-443-String-Compression</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -686,6 +867,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/leetcode-blog/js/local-search.js" ></script>
 
