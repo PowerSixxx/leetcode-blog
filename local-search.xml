@@ -8,15 +8,27 @@
     <link href="/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/"/>
     <url>/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/</url>
     
-    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>…</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">// ...</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote><p>什么时候用Sliding Window？  </p></blockquote><ul><li>当答案来自 <em><strong>一段连续区间</strong></em>，而且区间可以通过左右边界移动得到时，用滑动窗口。</li></ul><blockquote><p>为什么这道题目用Sliding Window？</p></blockquote><ul><li>连续区间</li><li>固定长度</li><li>暴力 O(nk)， 滑动窗口 O(n)</li></ul><blockquote><p>做法：</p></blockquote><ol><li>先算第一个窗口的 <code>sum</code></li><li>窗口右移：  <ul><li>加上右边新元素</li><li>减去左边移除的元素</li></ul></li><li>更新最大 <code>sum</code></li></ol><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">findMaxAverage</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>            sum += nums[i];<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxSum</span> <span class="hljs-operator">=</span> sum;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k; i &lt; nums.length; i++) &#123;<br>            sum += nums[i];<br>            sum -= nums[left]; <span class="hljs-comment">// 也可以 (sum -= nums[i - k]，这样不需要left)</span><br>            left++;<br>            maxSum = Math.max(sum, maxSum);<br>        &#125;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">double</span>)maxSum / k;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
       
       <category>LeetCode</category>
       
+      <category>75</category>
+      
+      <category>Sliding Window</category>
+      
     </categories>
     
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sliding Window</tag>
+      
+    </tags>
     
   </entry>
   
@@ -105,11 +117,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -260,9 +272,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
@@ -289,9 +301,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
@@ -374,9 +386,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
