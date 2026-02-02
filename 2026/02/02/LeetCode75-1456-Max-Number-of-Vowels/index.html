@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结总共三种情况:  index &#x3D; 0时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) index &#x3D; flowerbed.length - 1时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) 中间的情况：i !&#x3D; 0, i !&#x3D; flowerbed.length - 1- flowerbe">
+    <meta name="description" content="🧠 思路总结先统计第一个长度为k的窗口元音数，然后滑动窗口。每次滑动向右移动一位，减去窗口左边的字符，如果左边字符是元音，那么count--；加上新进入窗口的右端字符，如果是元音，那么count++，更新maxCount。 ❗ 易错点 &#x2F; 小坑不能直接简单判断如果左边不是元音，但是右边是元音count++ ✅ 代码（Java）123456789101112131415161718192">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-605-Can-Place-Flower">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/26/LeetCode75-605-Can-Place-Flower/index.html">
+<meta property="og:title" content="LeetCode75-1456-Max-Number-of-Vowels">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1456-Max-Number-of-Vowels/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结总共三种情况:  index &#x3D; 0时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) index &#x3D; flowerbed.length - 1时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0) 中间的情况：i !&#x3D; 0, i !&#x3D; flowerbed.length - 1- flowerbe">
+<meta property="og:description" content="🧠 思路总结先统计第一个长度为k的窗口元音数，然后滑动窗口。每次滑动向右移动一位，减去窗口左边的字符，如果左边字符是元音，那么count--；加上新进入窗口的右端字符，如果是元音，那么count++，更新maxCount。 ❗ 易错点 &#x2F; 小坑不能直接简单判断如果左边不是元音，但是右边是元音count++ ✅ 代码（Java）123456789101112131415161718192">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-27T04:08:40.000Z">
-<meta property="article:modified_time" content="2026-02-02T13:32:31.314Z">
+<meta property="article:published_time" content="2026-02-02T14:40:44.000Z">
+<meta property="article:modified_time" content="2026-02-02T14:51:37.516Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Array">
-<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Sliding Window">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-605-Can-Place-Flower - Baowen Leetcode Notes</title>
+  <title>LeetCode75-1456-Max-Number-of-Vowels - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-605-Can-Place-Flower"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-1456-Max-Number-of-Vowels"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-26 23:08" pubdate>
-          2026年1月26日 晚上
+        <time datetime="2026-02-02 09:40" pubdate>
+          2026年2月2日 上午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          748 字
+          767 字
         
       </span>
     
@@ -333,17 +333,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Array"
         id="heading-4410ec34d9e6c1a68100ca0ce033fb17" role="tab" data-toggle="collapse" href="#collapse-4410ec34d9e6c1a68100ca0ce033fb17"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Array
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
+      <div class="category-collapse collapse " id="collapse-4410ec34d9e6c1a68100ca0ce033fb17"
            role="tabpanel" aria-labelledby="heading-4410ec34d9e6c1a68100ca0ce033fb17">
         
         
@@ -373,7 +373,7 @@
       
         <a href="/leetcode-blog/2026/01/26/LeetCode75-605-Can-Place-Flower/" title="LeetCode75-605-Can-Place-Flower"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-605-Can-Place-Flower</span>
         </a>
       
@@ -388,17 +388,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Sliding Window"
         id="heading-b30f13de2433305c806f54cfb0223e82" role="tab" data-toggle="collapse" href="#collapse-b30f13de2433305c806f54cfb0223e82"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Sliding Window
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-b30f13de2433305c806f54cfb0223e82"
+      <div class="category-collapse collapse show" id="collapse-b30f13de2433305c806f54cfb0223e82"
            role="tabpanel" aria-labelledby="heading-b30f13de2433305c806f54cfb0223e82">
         
         
@@ -410,7 +410,7 @@
       
         <a href="/leetcode-blog/2026/02/02/LeetCode75-1456-Max-Number-of-Vowels/" title="LeetCode75-1456-Max-Number-of-Vowels"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-1456-Max-Number-of-Vowels</span>
         </a>
       
@@ -652,25 +652,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-605-Can-Place-Flower</h1>
+            <h1 id="seo-header">LeetCode75-1456-Max-Number-of-Vowels</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>总共<strong>三种</strong>情况:</p>
-<ol>
-<li><code>index = 0</code>时，flowerbed[i + 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li>
-<li><code>index = flowerbed.length - 1</code>时，flowerbed[i - 1] &#x3D;&#x3D; 0 (or !&#x3D; 0)</li>
-<li>中间的情况：<code>i != 0, i != flowerbed.length - 1</code><br>- flowerbed[i - 1] &#x3D;&#x3D; 0 &amp;&amp; flowerbed[i + 1] &#x3D;&#x3D; 0 此时可以种</li>
-</ol>
-<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>边界处理：<ul>
-<li>数组开头 (i &#x3D;&#x3D; 0) 或结尾 (i &#x3D;&#x3D; flowerbed.length-1)：开头没有左邻居，结尾没有右邻居，要特别判断。</li>
-</ul>
-</li>
-<li>尽量不要统计连续 0 的数量再计算能放多少花。</li>
-</ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">canPlaceFlowers</span><span class="hljs-params">(<span class="hljs-type">int</span>[] flowerbed, <span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; flowerbed.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (flowerbed[i] == <span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyLeft</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">0</span>) || (flowerbed[i - <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-type">boolean</span> <span class="hljs-variable">emptyRight</span> <span class="hljs-operator">=</span> (i == flowerbed.length - <span class="hljs-number">1</span>) || (flowerbed[i + <span class="hljs-number">1</span>] == <span class="hljs-number">0</span>);<br>                <span class="hljs-keyword">if</span> (emptyLeft &amp;&amp; emptyRight)&#123;<br>                    flowerbed[i] = <span class="hljs-number">1</span>;<br>                    count++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count &gt;= n;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>先统计第一个长度为k的窗口元音数，然后滑动窗口。每次滑动向右移动一位，减去窗口左边的字符，如果左边字符是元音，那么<code>count--</code>；加上新进入窗口的右端字符，如果是元音，那么<code>count++</code>，更新<code>maxCount</code>。</p>
+<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><p>不能直接简单判断如果左边不是元音，但是右边是元音<code>count++</code></p>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxVowels</span><span class="hljs-params">(String s, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">v</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aeiou&quot;</span>;<br>        Set&lt;Character&gt; vSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; v.length(); i++) &#123;<br>            vSet.add(v.charAt(i));<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(i);<br>            <span class="hljs-keyword">if</span> (vSet.contains(c))&#123;<br>                count++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxCount</span> <span class="hljs-operator">=</span> count;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k; i &lt; s.length(); i++) &#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">leftC</span> <span class="hljs-operator">=</span> s.charAt(i - k);<br>            <span class="hljs-type">char</span> <span class="hljs-variable">rightC</span> <span class="hljs-operator">=</span> s.charAt(i);<br>            <span class="hljs-keyword">if</span> (vSet.contains(leftC)) &#123;<br>                count--;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (vSet.contains(rightC)) &#123;<br>                count++;<br>            &#125;<br>            maxCount = Math.max(count, maxCount);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxCount;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -698,7 +687,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Array/" class="category-chain-item">Array</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Sliding-Window/" class="category-chain-item">Sliding Window</a>
   
   
 
@@ -717,9 +706,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
+        <a href="/leetcode-blog/tags/String/" class="print-no-link">#String</a>
       
-        <a href="/leetcode-blog/tags/Greedy/" class="print-no-link">#Greedy</a>
+        <a href="/leetcode-blog/tags/Sliding-Window/" class="print-no-link">#Sliding Window</a>
       
     </div>
   
@@ -731,8 +720,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-605-Can-Place-Flower</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/26/LeetCode75-605-Can-Place-Flower/</div>
+      <div>LeetCode75-1456-Max-Number-of-Vowels</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1456-Max-Number-of-Vowels/</div>
     </div>
     <div class="license-meta">
       
@@ -744,7 +733,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月26日</div>
+          <div>2026年2月2日</div>
         </div>
       
       
@@ -776,18 +765,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/27/LeetCode75-345-Reverse-Vowels/" title="LeetCode75-345-Reverse-Vowels">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-345-Reverse-Vowels</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/26/LeetCode-1071-GCD-of-Strings/" title="LeetCode-1071-GCD-of-Strings">
-                        <span class="hidden-mobile">LeetCode-1071-GCD-of-Strings</span>
+                      <a href="/leetcode-blog/2026/02/02/LeetCode75-643-Max-Avg-Subarray-I/" title="LeetCode75-643-Max-Avg-Subarray-I">
+                        <span class="hidden-mobile">LeetCode75-643-Max-Avg-Subarray-I</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
