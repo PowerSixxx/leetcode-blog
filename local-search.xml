@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-2215-Find-The-Difference-Of-Two-Arrays</title>
+    <link href="/leetcode-blog/2026/02/06/LeetCode75-2215-Find-The-Difference-Of-Two-Arrays/"/>
+    <url>/leetcode-blog/2026/02/06/LeetCode75-2215-Find-The-Difference-Of-Two-Arrays/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p><code>List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</code>: 创建了一个能装 List 的盒子，此时内存里的结构是： res  ──&gt;  []。<br>再放进去两个空盒子：  </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;());<br>res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;());<br></code></pre></td></tr></table></figure><p>在这之后内存变成：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">res ──&gt; [<br>          [],   <span class="hljs-comment">// res.get(0)</span><br>          []    <span class="hljs-comment">// res.get(1)</span><br>        ]<br></code></pre></td></tr></table></figure><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li><code>List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</code>不代表已经有两个List了，它只是 “我有一个 List，将来可以往里面放 List”</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="hljs-title function_">findDifference</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums1, <span class="hljs-type">int</span>[] nums2)</span> &#123;<br>        List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;());<br>        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;());<br>        Set&lt;Integer&gt; set1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br>        Set&lt;Integer&gt; set2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : nums1) &#123;<br>            set1.add(x);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : nums2) &#123;<br>            set2.add(x);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : set1) &#123;<br>            <span class="hljs-keyword">if</span> (!set2.contains(x)) &#123;<br>                res.get(<span class="hljs-number">0</span>).add(x);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : set2) &#123;<br>            <span class="hljs-keyword">if</span> (!set1.contains(x)) &#123;<br>                res.get(<span class="hljs-number">1</span>).add(x);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Hash</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hash Set</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-724-Find-Pivot-Index</title>
     <link href="/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/"/>
     <url>/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/</url>
