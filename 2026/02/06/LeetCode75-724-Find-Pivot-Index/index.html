@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+    <meta name="description" content="🧠 思路总结找一个下标i，当 i左边的sum &#x3D; i右边的sum时，返回i，否则返回-1。解题关键： 数组总和 &#x3D; 左边 + 当前元素 + 右边 （right &#x3D; total - left - nums[i]） ✅ 代码（Java）123456789101112131415161718class Solution &#123;    public int pivotIndex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-104-111-Max-Min-Depth-BT">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/13/LeetCode-104-111-Max-Min-Depth-BT/index.html">
+<meta property="og:title" content="LeetCode75-724-Find-Pivot-Index">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 104: Max depth   递归 dfs： 空节点返回 0 递归调用左子树和右子树 返回 max(left, right) + 1     111: Min depth root &#x3D;&#x3D; null → 0 只有一边为空 → 非空那边 + 1 两边都不空 → min(left, right) + 1    ❗ 易错点 &#x2F; 小坑 111: Min de">
+<meta property="og:description" content="🧠 思路总结找一个下标i，当 i左边的sum &#x3D; i右边的sum时，返回i，否则返回-1。解题关键： 数组总和 &#x3D; 左边 + 当前元素 + 右边 （right &#x3D; total - left - nums[i]） ✅ 代码（Java）123456789101112131415161718class Solution &#123;    public int pivotIndex">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-14T00:52:33.000Z">
-<meta property="article:modified_time" content="2026-02-02T13:34:23.632Z">
+<meta property="article:published_time" content="2026-02-06T17:40:10.000Z">
+<meta property="article:modified_time" content="2026-02-06T18:11:05.561Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="dfs">
-<meta property="article:tag" content="recursion">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Prefix Sum">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode-104-111-Max-Min-Depth-BT - Baowen Leetcode Notes</title>
+  <title>LeetCode75-724-Find-Pivot-Index - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode-104-111-Max-Min-Depth-BT"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-724-Find-Pivot-Index"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-13 19:52" pubdate>
-          2026年1月13日 晚上
+        <time datetime="2026-02-06 12:40" pubdate>
+          2026年2月6日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          798 字
+          444 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          7 分钟
+          4 分钟
         
       </span>
     
@@ -306,17 +306,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="75"
         id="heading-d09bf41544a3365a46c9077ebb5e35c3" role="tab" data-toggle="collapse" href="#collapse-d09bf41544a3365a46c9077ebb5e35c3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         75
         <span class="list-group-count">(10)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
+      <div class="category-collapse collapse show" id="collapse-d09bf41544a3365a46c9077ebb5e35c3"
            role="tabpanel" aria-labelledby="heading-d09bf41544a3365a46c9077ebb5e35c3">
         
         
@@ -388,17 +388,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Prefix Sum"
         id="heading-a2845f508bffbd778b8e40ced3863673" role="tab" data-toggle="collapse" href="#collapse-a2845f508bffbd778b8e40ced3863673"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Prefix Sum
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-a2845f508bffbd778b8e40ced3863673"
+      <div class="category-collapse collapse show" id="collapse-a2845f508bffbd778b8e40ced3863673"
            role="tabpanel" aria-labelledby="heading-a2845f508bffbd778b8e40ced3863673">
         
         
@@ -410,7 +410,7 @@
       
         <a href="/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/" title="LeetCode75-724-Find-Pivot-Index"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-724-Find-Pivot-Index</span>
         </a>
       
@@ -585,17 +585,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
         id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Binary Tree
         <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-ec47297e27d93f23f404ea8a4f690619"
+      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
            role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
         
         
@@ -616,7 +616,7 @@
       
         <a href="/leetcode-blog/2026/01/13/LeetCode-104-111-Max-Min-Depth-BT/" title="LeetCode-104-111-Max-Min-Depth-BT"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode-104-111-Max-Min-Depth-BT</span>
         </a>
       
@@ -698,40 +698,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode-104-111-Max-Min-Depth-BT</h1>
+            <h1 id="seo-header">LeetCode75-724-Find-Pivot-Index</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ul>
-<li>104: Max depth  <ul>
-<li>递归 dfs：<ul>
-<li>空节点返回 0</li>
-<li>递归调用左子树和右子树</li>
-<li>返回 max(left, right) + 1</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>111: Min depth<ul>
-<li>root &#x3D;&#x3D; null → 0</li>
-<li>只有一边为空 → 非空那边 + 1</li>
-<li>两边都不空 → min(left, right) + 1</li>
-</ul>
-</li>
-</ul>
-<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>111: Min depth<ul>
-<li>不能直接用 <code>min(left, right) + 1</code></li>
-<li>如果一边是 null，必须走另一边</li>
-<li>因为最小深度必须到“叶子”，不能走到空就停</li>
-</ul>
-</li>
-</ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 104. Maximum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> maxDepth(root.left);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> maxDepth(root.right);<br>    <span class="hljs-keyword">return</span> Math.max(left, right) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 111. Minimum Depth of Binary Tree</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minDepth</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果左子树为空，必须走右子树</span><br>    <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.right) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 如果右子树为空，必须走左子树</span><br>    <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> minDepth(root.left) + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 两边都不为空，返回较小的 + 1</span><br>    <span class="hljs-keyword">return</span> Math.min(minDepth(root.left), minDepth(root.right)) + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>找一个下标i，当 <code>i左边的sum</code> &#x3D; <code>i右边的sum</code>时，返回i，否则返回-1。<br>解题关键： 数组总和 &#x3D; 左边 + 当前元素 + 右边 （<code>right = total - left - nums[i]</code>）</p>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">pivotIndex</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-comment">// rightSum = totalSum - leftSum - nums[i]</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            total += nums[i];<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            <span class="hljs-comment">// left == right</span><br>            <span class="hljs-keyword">if</span> (left == total - left - nums[i]) &#123;<br>                <span class="hljs-keyword">return</span> i;<br>            &#125;<br>            left += nums[i];<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -754,8 +727,15 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/Binary-Tree/" class="category-chain-item">Binary Tree</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/" class="category-chain-item">75</a>
   
+  
+    <span>></span>
+    
+  <a href="/leetcode-blog/categories/LeetCode/75/Prefix-Sum/" class="category-chain-item">Prefix Sum</a>
+  
+  
+
   
 
   
@@ -771,9 +751,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/recursion/" class="print-no-link">#recursion</a>
+        <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
+        <a href="/leetcode-blog/tags/Prefix-Sum/" class="print-no-link">#Prefix Sum</a>
       
     </div>
   
@@ -785,8 +765,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode-104-111-Max-Min-Depth-BT</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/13/LeetCode-104-111-Max-Min-Depth-BT/</div>
+      <div>LeetCode75-724-Find-Pivot-Index</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/</div>
     </div>
     <div class="license-meta">
       
@@ -798,7 +778,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月13日</div>
+          <div>2026年2月6日</div>
         </div>
       
       
@@ -830,18 +810,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/15/LeetCode-110-Balanced-BT/" title="LeetCode-110-Balanced-BT">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode-110-Balanced-BT</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/11/LeetCode-101-Symmetric-Tree/" title="LeetCode-101-Symmetric-Tree">
-                        <span class="hidden-mobile">LeetCode-101-Symmetric-Tree</span>
+                      <a href="/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/" title="LeetCode75-1004-Max-Consecutive-Ones">
+                        <span class="hidden-mobile">LeetCode75-1004-Max-Consecutive-Ones</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
