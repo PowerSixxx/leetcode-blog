@@ -8,15 +8,27 @@
     <link href="/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/"/>
     <url>/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/</url>
     
-    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>…</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><pre><code class="language-java">// ...</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。  </p><blockquote><p>区别：<br>先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动</p></blockquote><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>窗口大小是可变的，所以我们用while循环缩小左边界</li><li>更新最大大小的时候应该是在 <em><strong>窗口合法的时候</strong></em></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">longestOnes</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">zeroCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxRes</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; right &lt; nums.length; right++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right] == <span class="hljs-number">0</span>) &#123;<br>                zeroCount++;<br>            &#125;<br>            <span class="hljs-keyword">while</span> (zeroCount &gt; k) &#123;<br>                <span class="hljs-keyword">if</span> (nums[left] == <span class="hljs-number">0</span>) &#123;<br>                    zeroCount--;<br>                &#125;<br>                left++;<br>            &#125;<br>            res = right - left + <span class="hljs-number">1</span>;<br>            maxRes = Math.max(res, maxRes);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxRes;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
       
       <category>LeetCode</category>
       
+      <category>75</category>
+      
+      <category>Sliding Window</category>
+      
     </categories>
     
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sliding Window</tag>
+      
+    </tags>
     
   </entry>
   
