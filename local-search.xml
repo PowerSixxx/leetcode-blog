@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-2352-Equal-Row-And-Column-Pairs</title>
+    <link href="/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/"/>
+    <url>/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ol><li>暴力法：</li></ol><ul><li>对每一行 ri，对每一列 cj，比较它们是否相等<code>equals</code>，但是逐元素比较的话，时间复杂度O(n)</li></ul><ol start="2"><li>使用<code>HashMap</code>：</li></ol><ul><li>遍历所有行，把每行转成字符串，存到HashMap中，并且记录出现次数</li><li>遍历每一列，把列也转成字符串</li><li>如果column在map中，就 <code>count += map.get(col)</code></li></ul><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>行可以直接 <code>grid[i]</code>去取</li><li>对于列不是直接像取行一样 grid[j]，而是要用循环去取 grid[i][j] 然后放到一个 col 列表里</li><li>为什么要将<code>Array</code>转化成<code>String</code>？因为数组是按引用比较，而不是按值比较，所以即使数组里的数字一模一样，但<code>map.containsKey()</code>还是会返回<code>false</code></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><ol><li>暴力法</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">equalPairs</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        List&lt;List&lt;Integer&gt;&gt; columnLists = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; grid.length; j++) &#123;<br>            List&lt;Integer&gt; col = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; grid.length; i++) &#123;<br>                col.add(grid[i][j]);<br>            &#125;<br>            columnLists.add(col);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; grid.length; i++) &#123;<br>            List&lt;Integer&gt; rowList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; grid.length; j++) &#123;<br>                rowList.add(grid[i][j]);<br>            &#125;<br>            <span class="hljs-keyword">for</span> (List&lt;Integer&gt; colList : columnLists) &#123;<br>                <span class="hljs-keyword">if</span> (rowList.equals(colList)) &#123;<br>                    count++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ol start="2"><li>HashMap</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">equalPairs</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> grid.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        HashMap&lt;String, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-comment">// Row</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">row</span> <span class="hljs-operator">=</span> Arrays.toString(grid[i]);<br>            map.put(row, map.getOrDefault(row, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-comment">// Column</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-type">int</span>[] col = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                col[i] = grid[i][j];<br>            &#125;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">colVal</span> <span class="hljs-operator">=</span> Arrays.toString(col);<br>            <span class="hljs-keyword">if</span> (map.containsKey(colVal)) &#123;<br>                count += map.get(colVal);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Hash</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hash Map</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>A-Gaze-Between-Diggers</title>
     <link href="/leetcode-blog/2026/02/07/A-Gaze-Between-Diggers/"/>
     <url>/leetcode-blog/2026/02/07/A-Gaze-Between-Diggers/</url>
@@ -287,11 +316,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
