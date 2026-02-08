@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-735-Asteroid-Collision</title>
+    <link href="/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/"/>
+    <url>/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>只有在一种情况下才会发生碰撞：左边的往右（+），右边的往左（-）。后面新的元素要和前面（最后）的元素进行反复比较，所以使用<code>Stack</code>。</p><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>注意最后要翻转<code>stack</code></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] asteroidCollision(<span class="hljs-type">int</span>[] asteroids) &#123;<br>        Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : asteroids) &#123;<br>            <span class="hljs-type">boolean</span> <span class="hljs-variable">alive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">while</span> (alive &amp;&amp; x &lt; <span class="hljs-number">0</span> &amp;&amp; !stack.isEmpty() &amp;&amp; stack.peek() &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">top</span> <span class="hljs-operator">=</span> stack.peek();<br>                <span class="hljs-keyword">if</span> (Math.abs(top) &lt; Math.abs(x)) &#123;<br>                    stack.pop();<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Math.abs(top) == Math.abs(x)) &#123;<br>                    stack.pop();<br>                    alive = <span class="hljs-literal">false</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    alive = <span class="hljs-literal">false</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (alive) &#123;<br>                stack.push(x);<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[stack.size()];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> res.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            res[i] = stack.pop();<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Stack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Stack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-2390-Remove-Stars-From-String</title>
     <link href="/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/"/>
     <url>/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/</url>
@@ -380,9 +411,9 @@
     
     <tags>
       
-      <tag>String</tag>
-      
       <tag>Array</tag>
+      
+      <tag>String</tag>
       
       <tag>Two Pointers</tag>
       
@@ -502,9 +533,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
@@ -531,9 +562,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     
@@ -616,9 +647,9 @@
     
     <tags>
       
-      <tag>recursion</tag>
-      
       <tag>dfs</tag>
+      
+      <tag>recursion</tag>
       
     </tags>
     

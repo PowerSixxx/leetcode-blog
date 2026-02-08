@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。    区别：先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动  ❗ 易错点 &#x2F; 小坑 窗口大小是可变的，所以我们用while循环缩小左边界 更新最大大小的时候应该是在 窗口合法的时候  ✅">
+    <meta name="description" content="🧠 思路总结只有在一种情况下才会发生碰撞：左边的往右（+），右边的往左（-）。后面新的元素要和前面（最后）的元素进行反复比较，所以使用Stack。 ❗ 易错点 &#x2F; 小坑 注意最后要翻转stack  ✅ 代码（Java）123456789101112131415161718192021222324252627class Solution &#123;    public int[] as">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-1004-Max-Consecutive-Ones">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/index.html">
+<meta property="og:title" content="LeetCode75-735-Asteroid-Collision">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。    区别：先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动  ❗ 易错点 &#x2F; 小坑 窗口大小是可变的，所以我们用while循环缩小左边界 更新最大大小的时候应该是在 窗口合法的时候  ✅">
+<meta property="og:description" content="🧠 思路总结只有在一种情况下才会发生碰撞：左边的往右（+），右边的往左（-）。后面新的元素要和前面（最后）的元素进行反复比较，所以使用Stack。 ❗ 易错点 &#x2F; 小坑 注意最后要翻转stack  ✅ 代码（Java）123456789101112131415161718192021222324252627class Solution &#123;    public int[] as">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-02T21:55:40.000Z">
-<meta property="article:modified_time" content="2026-02-02T22:34:25.929Z">
+<meta property="article:published_time" content="2026-02-08T02:02:38.000Z">
+<meta property="article:modified_time" content="2026-02-08T02:16:31.504Z">
 <meta property="article:author" content="Baowen Liu">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Sliding Window">
+<meta property="article:tag" content="Stack">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-1004-Max-Consecutive-Ones - Baowen Leetcode Notes</title>
+  <title>LeetCode75-735-Asteroid-Collision - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-1004-Max-Consecutive-Ones"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-735-Asteroid-Collision"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-02 16:55" pubdate>
-          2026年2月2日 下午
+        <time datetime="2026-02-07 21:02" pubdate>
+          2026年2月7日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          583 字
+          733 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -480,17 +480,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Sliding Window"
         id="heading-b30f13de2433305c806f54cfb0223e82" role="tab" data-toggle="collapse" href="#collapse-b30f13de2433305c806f54cfb0223e82"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Sliding Window
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-b30f13de2433305c806f54cfb0223e82"
+      <div class="category-collapse collapse " id="collapse-b30f13de2433305c806f54cfb0223e82"
            role="tabpanel" aria-labelledby="heading-b30f13de2433305c806f54cfb0223e82">
         
         
@@ -502,7 +502,7 @@
       
         <a href="/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/" title="LeetCode75-1004-Max-Consecutive-Ones"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-1004-Max-Consecutive-Ones</span>
         </a>
       
@@ -535,17 +535,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Stack"
         id="heading-2187e1021a911b3807cc1bea2eb1a9ca" role="tab" data-toggle="collapse" href="#collapse-2187e1021a911b3807cc1bea2eb1a9ca"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Stack
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-2187e1021a911b3807cc1bea2eb1a9ca"
+      <div class="category-collapse collapse show" id="collapse-2187e1021a911b3807cc1bea2eb1a9ca"
            role="tabpanel" aria-labelledby="heading-2187e1021a911b3807cc1bea2eb1a9ca">
         
         
@@ -566,7 +566,7 @@
       
         <a href="/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/" title="LeetCode75-735-Asteroid-Collision"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-735-Asteroid-Collision</span>
         </a>
       
@@ -799,20 +799,16 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-1004-Max-Consecutive-Ones</h1>
+            <h1 id="seo-header">LeetCode75-735-Asteroid-Collision</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>这道题目和典型的Sliding Window题目不一样，因为它的窗口大小不是固定的，而是动态变化的。所以不能直接先固定第一个Window再慢慢滑动，而是这个窗口随时可能变化。  </p>
-<blockquote>
-<p>区别：<br>先固定一个窗口适合固定大小的窗口，或者知道窗口大小后慢慢移动</p>
-</blockquote>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>只有在一种情况下才会发生碰撞：左边的往右（+），右边的往左（-）。后面新的元素要和前面（最后）的元素进行反复比较，所以使用<code>Stack</code>。</p>
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>窗口大小是可变的，所以我们用while循环缩小左边界</li>
-<li>更新最大大小的时候应该是在 <em><strong>窗口合法的时候</strong></em></li>
+<li>注意最后要翻转<code>stack</code></li>
 </ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">longestOnes</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">zeroCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxRes</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; right &lt; nums.length; right++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right] == <span class="hljs-number">0</span>) &#123;<br>                zeroCount++;<br>            &#125;<br>            <span class="hljs-keyword">while</span> (zeroCount &gt; k) &#123;<br>                <span class="hljs-keyword">if</span> (nums[left] == <span class="hljs-number">0</span>) &#123;<br>                    zeroCount--;<br>                &#125;<br>                left++;<br>            &#125;<br>            res = right - left + <span class="hljs-number">1</span>;<br>            maxRes = Math.max(res, maxRes);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxRes;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] asteroidCollision(<span class="hljs-type">int</span>[] asteroids) &#123;<br>        Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : asteroids) &#123;<br>            <span class="hljs-type">boolean</span> <span class="hljs-variable">alive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">while</span> (alive &amp;&amp; x &lt; <span class="hljs-number">0</span> &amp;&amp; !stack.isEmpty() &amp;&amp; stack.peek() &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">top</span> <span class="hljs-operator">=</span> stack.peek();<br>                <span class="hljs-keyword">if</span> (Math.abs(top) &lt; Math.abs(x)) &#123;<br>                    stack.pop();<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Math.abs(top) == Math.abs(x)) &#123;<br>                    stack.pop();<br>                    alive = <span class="hljs-literal">false</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    alive = <span class="hljs-literal">false</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (alive) &#123;<br>                stack.push(x);<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[stack.size()];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> res.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            res[i] = stack.pop();<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -840,7 +836,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Sliding-Window/" class="category-chain-item">Sliding Window</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Stack/" class="category-chain-item">Stack</a>
   
   
 
@@ -859,9 +855,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Sliding-Window/" class="print-no-link">#Sliding Window</a>
-      
         <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
+      
+        <a href="/leetcode-blog/tags/Stack/" class="print-no-link">#Stack</a>
       
     </div>
   
@@ -873,8 +869,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-1004-Max-Consecutive-Ones</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/02/LeetCode75-1004-Max-Consecutive-Ones/</div>
+      <div>LeetCode75-735-Asteroid-Collision</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/</div>
     </div>
     <div class="license-meta">
       
@@ -886,7 +882,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月2日</div>
+          <div>2026年2月7日</div>
         </div>
       
       
@@ -918,18 +914,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/06/LeetCode75-724-Find-Pivot-Index/" title="LeetCode75-724-Find-Pivot-Index">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-724-Find-Pivot-Index</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/02/LeetCode75-1456-Max-Number-of-Vowels/" title="LeetCode75-1456-Max-Number-of-Vowels">
-                        <span class="hidden-mobile">LeetCode75-1456-Max-Number-of-Vowels</span>
+                      <a href="/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/" title="LeetCode75-2390-Remove-Stars-From-String">
+                        <span class="hidden-mobile">LeetCode75-2390-Remove-Stars-From-String</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
