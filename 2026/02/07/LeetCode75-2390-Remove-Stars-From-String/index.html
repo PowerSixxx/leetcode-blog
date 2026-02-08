@@ -19,22 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 暴力法：   对每一行 ri，对每一列 cj，比较它们是否相等equals，但是逐元素比较的话，时间复杂度O(n)   使用HashMap：   遍历所有行，把每行转成字符串，存到HashMap中，并且记录出现次数 遍历每一列，把列也转成字符串 如果column在map中，就 count +&#x3D; map.get(col)  ❗ 易错点 &#x2F; 小坑 行可以直接 grid[i]去">
+    <meta name="description" content="🧠 思路总结 注意这三个词：最近的、左边的、还没被删的，已经在暗示使用Stack了。   可以注意到每次要删除的都是 最后留下 的一个字符，而这个正好符合 后进先出 (LIFO)，所以这就是Stack的特征  ❗ 易错点 &#x2F; 小坑 char 在 Java 里 必须且只能存 1 个字符，不能存储&#39;&#39;  ✅ 代码（Java）1234567891011121314151617">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-2352-Equal-Row-And-Column-Pairs">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/index.html">
+<meta property="og:title" content="LeetCode75-2390-Remove-Stars-From-String">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 暴力法：   对每一行 ri，对每一列 cj，比较它们是否相等equals，但是逐元素比较的话，时间复杂度O(n)   使用HashMap：   遍历所有行，把每行转成字符串，存到HashMap中，并且记录出现次数 遍历每一列，把列也转成字符串 如果column在map中，就 count +&#x3D; map.get(col)  ❗ 易错点 &#x2F; 小坑 行可以直接 grid[i]去">
+<meta property="og:description" content="🧠 思路总结 注意这三个词：最近的、左边的、还没被删的，已经在暗示使用Stack了。   可以注意到每次要删除的都是 最后留下 的一个字符，而这个正好符合 后进先出 (LIFO)，所以这就是Stack的特征  ❗ 易错点 &#x2F; 小坑 char 在 Java 里 必须且只能存 1 个字符，不能存储&#39;&#39;  ✅ 代码（Java）1234567891011121314151617">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-07T22:42:45.000Z">
-<meta property="article:modified_time" content="2026-02-07T23:30:26.781Z">
+<meta property="article:published_time" content="2026-02-07T23:55:52.000Z">
+<meta property="article:modified_time" content="2026-02-08T00:20:03.560Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Hash Map">
+<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="String1">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-2352-Equal-Row-And-Column-Pairs - Baowen Leetcode Notes</title>
+  <title>LeetCode75-2390-Remove-Stars-From-String - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-2352-Equal-Row-And-Column-Pairs"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-2390-Remove-Stars-From-String"></span>
           
         </div>
 
@@ -211,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-07 17:42" pubdate>
-          2026年2月7日 下午
+        <time datetime="2026-02-07 18:55" pubdate>
+          2026年2月7日 晚上
         </time>
       </span>
     
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          536 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          13 分钟
+          5 分钟
         
       </span>
     
@@ -387,17 +388,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Hash"
         id="heading-fae8a9257e154175da4193dbf6552ef6" role="tab" data-toggle="collapse" href="#collapse-fae8a9257e154175da4193dbf6552ef6"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Hash
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-fae8a9257e154175da4193dbf6552ef6"
+      <div class="category-collapse collapse " id="collapse-fae8a9257e154175da4193dbf6552ef6"
            role="tabpanel" aria-labelledby="heading-fae8a9257e154175da4193dbf6552ef6">
         
         
@@ -427,7 +428,7 @@
       
         <a href="/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/" title="LeetCode75-2352-Equal-Row-And-Column-Pairs"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-2352-Equal-Row-And-Column-Pairs</span>
         </a>
       
@@ -534,17 +535,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Stack"
         id="heading-2187e1021a911b3807cc1bea2eb1a9ca" role="tab" data-toggle="collapse" href="#collapse-2187e1021a911b3807cc1bea2eb1a9ca"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Stack
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-2187e1021a911b3807cc1bea2eb1a9ca"
+      <div class="category-collapse collapse show" id="collapse-2187e1021a911b3807cc1bea2eb1a9ca"
            role="tabpanel" aria-labelledby="heading-2187e1021a911b3807cc1bea2eb1a9ca">
         
         
@@ -556,7 +557,7 @@
       
         <a href="/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/" title="LeetCode75-2390-Remove-Stars-From-String"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-2390-Remove-Stars-From-String</span>
         </a>
       
@@ -789,39 +790,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-2352-Equal-Row-And-Column-Pairs</h1>
+            <h1 id="seo-header">LeetCode75-2390-Remove-Stars-From-String</h1>
             
             
               <div class="markdown-body">
                 
                 <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ol>
-<li>暴力法：</li>
+<li>注意这三个词：最近的、左边的、还没被删的，已经在暗示使用<code>Stack</code>了。  </li>
+<li>可以注意到每次要删除的都是 <em><strong>最后留下</strong></em> 的一个字符，而这个正好符合 <em><strong>后进先出 (LIFO)</strong></em>，所以这就是<code>Stack</code>的特征</li>
 </ol>
-<ul>
-<li>对每一行 ri，对每一列 cj，比较它们是否相等<code>equals</code>，但是逐元素比较的话，时间复杂度O(n)</li>
-</ul>
-<ol start="2">
-<li>使用<code>HashMap</code>：</li>
-</ol>
-<ul>
-<li>遍历所有行，把每行转成字符串，存到HashMap中，并且记录出现次数</li>
-<li>遍历每一列，把列也转成字符串</li>
-<li>如果column在map中，就 <code>count += map.get(col)</code></li>
-</ul>
 <h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
-<li>行可以直接 <code>grid[i]</code>去取</li>
-<li>对于列不是直接像取行一样 grid[j]，而是要用循环去取 grid[i][j] 然后放到一个 col 列表里</li>
-<li>为什么要将<code>Array</code>转化成<code>String</code>？因为数组是按引用比较，而不是按值比较，所以即使数组里的数字一模一样，但<code>map.containsKey()</code>还是会返回<code>false</code></li>
+<li>char 在 Java 里 必须且只能存 1 个字符，不能存储<code>&#39;&#39;</code></li>
 </ul>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><ol>
-<li>暴力法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">equalPairs</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        List&lt;List&lt;Integer&gt;&gt; columnLists = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; grid.length; j++) &#123;<br>            List&lt;Integer&gt; col = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; grid.length; i++) &#123;<br>                col.add(grid[i][j]);<br>            &#125;<br>            columnLists.add(col);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; grid.length; i++) &#123;<br>            List&lt;Integer&gt; rowList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; grid.length; j++) &#123;<br>                rowList.add(grid[i][j]);<br>            &#125;<br>            <span class="hljs-keyword">for</span> (List&lt;Integer&gt; colList : columnLists) &#123;<br>                <span class="hljs-keyword">if</span> (rowList.equals(colList)) &#123;<br>                    count++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>HashMap</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">equalPairs</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> grid.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        HashMap&lt;String, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-comment">// Row</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">row</span> <span class="hljs-operator">=</span> Arrays.toString(grid[i]);<br>            map.put(row, map.getOrDefault(row, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-comment">// Column</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-type">int</span>[] col = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                col[i] = grid[i][j];<br>            &#125;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">colVal</span> <span class="hljs-operator">=</span> Arrays.toString(col);<br>            <span class="hljs-keyword">if</span> (map.containsKey(colVal)) &#123;<br>                count += map.get(colVal);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">removeStars</span><span class="hljs-params">(String s)</span> &#123;<br>        Stack&lt;Character&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray()) &#123;<br>            <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;*&#x27;</span>) &#123;<br>                <span class="hljs-keyword">if</span> (!stack.isEmpty()) &#123;<br>                    stack.pop();<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                stack.push(c);<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : stack) &#123;<br>            sb.append(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -849,7 +830,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Hash/" class="category-chain-item">Hash</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Stack/" class="category-chain-item">Stack</a>
   
   
 
@@ -868,7 +849,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Hash-Map/" class="print-no-link">#Hash Map</a>
+        <a href="/leetcode-blog/tags/Stack/" class="print-no-link">#Stack</a>
+      
+        <a href="/leetcode-blog/tags/String1/" class="print-no-link">#String1</a>
       
     </div>
   
@@ -880,8 +863,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-2352-Equal-Row-And-Column-Pairs</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/</div>
+      <div>LeetCode75-2390-Remove-Stars-From-String</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/</div>
     </div>
     <div class="license-meta">
       
@@ -925,18 +908,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/" title="LeetCode75-2390-Remove-Stars-From-String">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-2390-Remove-Stars-From-String</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/07/A-Gaze-Between-Diggers/" title="A-Gaze-Between-Diggers">
-                        <span class="hidden-mobile">A-Gaze-Between-Diggers</span>
+                      <a href="/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/" title="LeetCode75-2352-Equal-Row-And-Column-Pairs">
+                        <span class="hidden-mobile">LeetCode75-2352-Equal-Row-And-Column-Pairs</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

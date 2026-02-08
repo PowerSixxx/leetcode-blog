@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-2390-Remove-Stars-From-String</title>
+    <link href="/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/"/>
+    <url>/leetcode-blog/2026/02/07/LeetCode75-2390-Remove-Stars-From-String/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><ol><li>注意这三个词：最近的、左边的、还没被删的，已经在暗示使用<code>Stack</code>了。  </li><li>可以注意到每次要删除的都是 <em><strong>最后留下</strong></em> 的一个字符，而这个正好符合 <em><strong>后进先出 (LIFO)</strong></em>，所以这就是<code>Stack</code>的特征</li></ol><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>char 在 Java 里 必须且只能存 1 个字符，不能存储<code>&#39;&#39;</code></li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">removeStars</span><span class="hljs-params">(String s)</span> &#123;<br>        Stack&lt;Character&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray()) &#123;<br>            <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;*&#x27;</span>) &#123;<br>                <span class="hljs-keyword">if</span> (!stack.isEmpty()) &#123;<br>                    stack.pop();<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                stack.push(c);<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : stack) &#123;<br>            sb.append(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Stack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Stack</tag>
+      
+      <tag>String1</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-2352-Equal-Row-And-Column-Pairs</title>
     <link href="/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/"/>
     <url>/leetcode-blog/2026/02/07/LeetCode75-2352-Equal-Row-And-Column-Pairs/</url>
@@ -161,9 +192,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Sliding Window</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -223,9 +254,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Sliding Window</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -316,11 +347,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -349,9 +380,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>String</tag>
+      
+      <tag>Array</tag>
       
       <tag>Two Pointers</tag>
       
@@ -614,9 +645,9 @@
     
     <tags>
       
-      <tag>HashMap</tag>
-      
       <tag>Array</tag>
+      
+      <tag>HashMap</tag>
       
       <tag>Easy</tag>
       
