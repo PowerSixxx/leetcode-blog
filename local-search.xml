@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>LeetCode75-394-Decode-String</title>
+    <link href="/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/"/>
+    <url>/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>这道题目为什么要用<code>Stack</code>：题目里有嵌套结构（必须先算里面，再算外面），这是LIFO &#x3D; Stack。 </p><p>扫描字符串：  </p><ol><li>[：把当前状态压栈</li><li>]：弹栈并结算当前层</li><li>字母直接拼</li><li>数字记录次数</li></ol><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">decodeString</span><span class="hljs-params">(String s)</span> &#123;<br>        Stack&lt;Integer&gt; numStack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        Stack&lt;String&gt; strStack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">curStr</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray()) &#123;<br>            <span class="hljs-keyword">if</span> (Character.isDigit(c)) &#123;<br>                num = num * <span class="hljs-number">10</span> + (c - <span class="hljs-string">&#x27;0&#x27;</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;[&#x27;</span>) &#123;<br>                numStack.push(num);<br>                strStack.push(curStr);<br>                num = <span class="hljs-number">0</span>;<br>                curStr = <span class="hljs-string">&quot;&quot;</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;]&#x27;</span>) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> numStack.pop();<br>                <span class="hljs-type">String</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> strStack.pop();<br>                <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(prev);<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>                    sb.append(curStr);<br>                &#125;<br>                curStr = sb.toString();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                curStr += c;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> curStr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Stack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>Reversion</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-735-Asteroid-Collision</title>
     <link href="/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/"/>
     <url>/leetcode-blog/2026/02/07/LeetCode75-735-Asteroid-Collision/</url>
@@ -223,9 +256,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Sliding Window</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -285,9 +318,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Sliding Window</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -378,11 +411,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -676,9 +709,9 @@
     
     <tags>
       
-      <tag>HashMap</tag>
-      
       <tag>Array</tag>
+      
+      <tag>HashMap</tag>
       
       <tag>Easy</tag>
       
