@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-933-Number-Of-Recent-Calls</title>
+    <link href="/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/"/>
+    <url>/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 <em><strong><code>Queue</code></strong></em>。<br>因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。</p><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RecentCounter</span> &#123;<br>    Queue&lt;Integer&gt; queue;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RecentCounter</span><span class="hljs-params">()</span> &#123;<br>        queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">ping</span><span class="hljs-params">(<span class="hljs-type">int</span> t)</span> &#123;<br>        queue.offer(t);<br>        <span class="hljs-keyword">while</span> (!queue.isEmpty() &amp;&amp; queue.peek() &lt; t - <span class="hljs-number">3000</span>) &#123;<br>            queue.poll();<br>        &#125;<br>        <span class="hljs-keyword">return</span> queue.size();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Queue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hash Set</tag>
+      
+      <tag>Queue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-394-Decode-String</title>
     <link href="/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/"/>
     <url>/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/</url>
@@ -88,9 +119,9 @@
     
     <tags>
       
-      <tag>Stack</tag>
+      <tag>String</tag>
       
-      <tag>String1</tag>
+      <tag>Stack</tag>
       
     </tags>
     
@@ -256,9 +287,9 @@
     
     <tags>
       
-      <tag>Sliding Window</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Sliding Window</tag>
       
     </tags>
     
@@ -318,9 +349,9 @@
     
     <tags>
       
-      <tag>Sliding Window</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Sliding Window</tag>
       
     </tags>
     
@@ -411,11 +442,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -709,9 +740,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
+      
+      <tag>Array</tag>
       
       <tag>Easy</tag>
       
