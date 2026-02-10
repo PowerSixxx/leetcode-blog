@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-649-Dota2</title>
+    <link href="/leetcode-blog/2026/02/10/LeetCode75-649-Dota2/"/>
+    <url>/leetcode-blog/2026/02/10/LeetCode75-649-Dota2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote><p>何时该用 <code>Queue</code>：只要题目里出现「按顺序轮流 + 用完还能再回来」，应该想到 <code>queue</code>。</p></blockquote><p>这道题目可以想象成：一群人排队，一个接一个动，动完如果还活着，就回来排到队尾，继续动；被淘汰的直接poll掉。所以这道题目符合 <em><strong>FIFO</strong></em></p><p>思路：<br>R队列：存所有 R 的下标。D队列：存所有 D 的下标。<strong>下标越小，出手越早</strong></p><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">predictPartyVictory</span><span class="hljs-params">(String senate)</span> &#123;<br>        Queue&lt;Integer&gt; rQueue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>        Queue&lt;Integer&gt; dQueue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; senate.length(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (senate.charAt(i) == <span class="hljs-string">&#x27;R&#x27;</span>) &#123;<br>                rQueue.offer(i);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                dQueue.offer(i);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">while</span> (!rQueue.isEmpty() &amp;&amp; !dQueue.isEmpty()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> rQueue.poll();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> dQueue.poll();<br>            <span class="hljs-keyword">if</span> (r &lt; d) &#123;<br>                rQueue.offer(r + senate.length());<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                dQueue.offer(d + senate.length());<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (rQueue.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Dire&quot;</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Radiant&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Queue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+      <tag>Queue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-933-Number-Of-Recent-Calls</title>
     <link href="/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/"/>
     <url>/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/</url>
@@ -442,11 +473,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
