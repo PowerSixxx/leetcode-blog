@@ -19,23 +19,22 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+    <meta name="description" content="🧠 思路总结将原链表 拆成 两条链：    odd 链 even 链  遍历过程中同时维护两个链表，最后把odd链尾部接到even链头部 ❗ 易错点 &#x2F; 小坑 忘记保存 evenHead while 条件写错  ✅ 代码（Java）12345678910111213141516171819202122232425262728293031&#x2F;** * Definition for sing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-933-Number-Of-Recent-Calls">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/index.html">
+<meta property="og:title" content="LeetCode75-328-Odd-Even-Linked-List">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+<meta property="og:description" content="🧠 思路总结将原链表 拆成 两条链：    odd 链 even 链  遍历过程中同时维护两个链表，最后把odd链尾部接到even链头部 ❗ 易错点 &#x2F; 小坑 忘记保存 evenHead while 条件写错  ✅ 代码（Java）12345678910111213141516171819202122232425262728293031&#x2F;** * Definition for sing">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-09T20:23:13.000Z">
-<meta property="article:modified_time" content="2026-02-09T21:09:31.684Z">
+<meta property="article:published_time" content="2026-02-13T19:25:32.000Z">
+<meta property="article:modified_time" content="2026-02-13T20:25:30.866Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Hash Set">
-<meta property="article:tag" content="Queue">
+<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-933-Number-Of-Recent-Calls - Baowen Leetcode Notes</title>
+  <title>LeetCode75-328-Odd-Even-Linked-List - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-933-Number-Of-Recent-Calls"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-328-Odd-Even-Linked-List"></span>
           
         </div>
 
@@ -212,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-09 15:23" pubdate>
-          2026年2月9日 下午
+        <time datetime="2026-02-13 14:25" pubdate>
+          2026年2月13日 下午
         </time>
       </span>
     
@@ -224,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          750 字
         
       </span>
     
@@ -235,7 +234,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -443,17 +442,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Linked List"
         id="heading-329e1d8c80090d1f92f32bfb53c98b4d" role="tab" data-toggle="collapse" href="#collapse-329e1d8c80090d1f92f32bfb53c98b4d"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Linked List
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-329e1d8c80090d1f92f32bfb53c98b4d"
+      <div class="category-collapse collapse show" id="collapse-329e1d8c80090d1f92f32bfb53c98b4d"
            role="tabpanel" aria-labelledby="heading-329e1d8c80090d1f92f32bfb53c98b4d">
         
         
@@ -474,7 +473,7 @@
       
         <a href="/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/" title="LeetCode75-328-Odd-Even-Linked-List"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-328-Odd-Even-Linked-List</span>
         </a>
       
@@ -526,17 +525,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Queue"
         id="heading-722ad2d05ecf4868b00c5484b82fd808" role="tab" data-toggle="collapse" href="#collapse-722ad2d05ecf4868b00c5484b82fd808"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Queue
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-722ad2d05ecf4868b00c5484b82fd808"
+      <div class="category-collapse collapse " id="collapse-722ad2d05ecf4868b00c5484b82fd808"
            role="tabpanel" aria-labelledby="heading-722ad2d05ecf4868b00c5484b82fd808">
         
         
@@ -557,7 +556,7 @@
       
         <a href="/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/" title="LeetCode75-933-Number-Of-Recent-Calls"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-933-Number-Of-Recent-Calls</span>
         </a>
       
@@ -900,13 +899,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-933-Number-Of-Recent-Calls</h1>
+            <h1 id="seo-header">LeetCode75-328-Odd-Even-Linked-List</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 <em><strong><code>Queue</code></strong></em>。<br>因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。</p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RecentCounter</span> &#123;<br>    Queue&lt;Integer&gt; queue;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RecentCounter</span><span class="hljs-params">()</span> &#123;<br>        queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">ping</span><span class="hljs-params">(<span class="hljs-type">int</span> t)</span> &#123;<br>        queue.offer(t);<br>        <span class="hljs-keyword">while</span> (!queue.isEmpty() &amp;&amp; queue.peek() &lt; t - <span class="hljs-number">3000</span>) &#123;<br>            queue.poll();<br>        &#125;<br>        <span class="hljs-keyword">return</span> queue.size();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>将原链表 <em><strong>拆成</strong></em> 两条链：  </p>
+<ol>
+<li>odd 链</li>
+<li>even 链</li>
+</ol>
+<p>遍历过程中同时维护两个链表，最后把odd链尾部接到even链头部</p>
+<h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul>
+<li>忘记保存 evenHead</li>
+<li>while 条件写错</li>
+</ul>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode() &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">oddEvenList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">odd</span> <span class="hljs-operator">=</span> head;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">even</span> <span class="hljs-operator">=</span> head.next;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">evenHead</span> <span class="hljs-operator">=</span> even; <span class="hljs-comment">// 保存偶数链头</span><br><br>        <span class="hljs-keyword">while</span> (even != <span class="hljs-literal">null</span> &amp;&amp; even.next != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-comment">// 奇数链跳一步</span><br>            odd.next = even.next;<br>            odd = odd.next;<br>            <span class="hljs-comment">// 偶数链跳一步</span><br>            even.next = odd.next;<br>            even = even.next;<br>        &#125;<br>        odd.next = evenHead; <span class="hljs-comment">// 拼接链表</span><br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -934,7 +942,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Queue/" class="category-chain-item">Queue</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Linked-List/" class="category-chain-item">Linked List</a>
   
   
 
@@ -953,9 +961,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Hash-Set/" class="print-no-link">#Hash Set</a>
-      
-        <a href="/leetcode-blog/tags/Queue/" class="print-no-link">#Queue</a>
+        <a href="/leetcode-blog/tags/Linked-List/" class="print-no-link">#Linked List</a>
       
     </div>
   
@@ -967,8 +973,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-933-Number-Of-Recent-Calls</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/</div>
+      <div>LeetCode75-328-Odd-Even-Linked-List</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/</div>
     </div>
     <div class="license-meta">
       
@@ -980,7 +986,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月9日</div>
+          <div>2026年2月13日</div>
         </div>
       
       
@@ -1012,18 +1018,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/10/LeetCode75-649-Dota2/" title="LeetCode75-649-Dota2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-649-Dota2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/" title="LeetCode75-394-Decode-String">
-                        <span class="hidden-mobile">LeetCode75-394-Decode-String</span>
+                      <a href="/leetcode-blog/2026/02/11/LeetCode75-2095-Delete-Middle-Node/" title="LeetCode75-2095-Delete-Middle-Node">
+                        <span class="hidden-mobile">LeetCode75-2095-Delete-Middle-Node</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

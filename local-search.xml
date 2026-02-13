@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-328-Odd-Even-Linked-List</title>
+    <link href="/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/"/>
+    <url>/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>将原链表 <em><strong>拆成</strong></em> 两条链：  </p><ol><li>odd 链</li><li>even 链</li></ol><p>遍历过程中同时维护两个链表，最后把odd链尾部接到even链头部</p><h2 id="❗-易错点-小坑"><a href="#❗-易错点-小坑" class="headerlink" title="❗ 易错点 &#x2F; 小坑"></a>❗ 易错点 &#x2F; 小坑</h2><ul><li>忘记保存 evenHead</li><li>while 条件写错</li></ul><h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode() &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">oddEvenList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">odd</span> <span class="hljs-operator">=</span> head;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">even</span> <span class="hljs-operator">=</span> head.next;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">evenHead</span> <span class="hljs-operator">=</span> even; <span class="hljs-comment">// 保存偶数链头</span><br><br>        <span class="hljs-keyword">while</span> (even != <span class="hljs-literal">null</span> &amp;&amp; even.next != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-comment">// 奇数链跳一步</span><br>            odd.next = even.next;<br>            odd = odd.next;<br>            <span class="hljs-comment">// 偶数链跳一步</span><br>            even.next = odd.next;<br>            even = even.next;<br>        &#125;<br>        odd.next = evenHead; <span class="hljs-comment">// 拼接链表</span><br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Linked List</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-2095-Delete-Middle-Node</title>
     <link href="/leetcode-blog/2026/02/11/LeetCode75-2095-Delete-Middle-Node/"/>
     <url>/leetcode-blog/2026/02/11/LeetCode75-2095-Delete-Middle-Node/</url>
