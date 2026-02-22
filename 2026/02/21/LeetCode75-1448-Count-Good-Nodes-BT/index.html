@@ -19,23 +19,25 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+    <meta name="description" content="🧠 思路总结 Q: 为什么要单独写一个 helper 方法？    因为题目函数 goodNodes(root) 只给一个参数，但 DFS 需要两个参数 (当前节点, 当前路径最大值)。 ✅ 代码（Java）123456789101112131415161718192021222324252627282930313233&#x2F;** * Definition for a binary tree nod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-933-Number-Of-Recent-Calls">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/index.html">
+<meta property="og:title" content="LeetCode75-1448-Count-Good-Nodes-BT">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/21/LeetCode75-1448-Count-Good-Nodes-BT/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+<meta property="og:description" content="🧠 思路总结 Q: 为什么要单独写一个 helper 方法？    因为题目函数 goodNodes(root) 只给一个参数，但 DFS 需要两个参数 (当前节点, 当前路径最大值)。 ✅ 代码（Java）123456789101112131415161718192021222324252627282930313233&#x2F;** * Definition for a binary tree nod">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-09T20:23:13.000Z">
-<meta property="article:modified_time" content="2026-02-09T21:09:31.684Z">
+<meta property="article:published_time" content="2026-02-21T23:31:46.000Z">
+<meta property="article:modified_time" content="2026-02-22T00:20:32.177Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Hash Set">
-<meta property="article:tag" content="Queue">
+<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="bfs">
+<meta property="article:tag" content="dfs">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-933-Number-Of-Recent-Calls - Baowen Leetcode Notes</title>
+  <title>LeetCode75-1448-Count-Good-Nodes-BT - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-933-Number-Of-Recent-Calls"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-1448-Count-Good-Nodes-BT"></span>
           
         </div>
 
@@ -212,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-09 15:23" pubdate>
-          2026年2月9日 下午
+        <time datetime="2026-02-21 18:31" pubdate>
+          2026年2月21日 晚上
         </time>
       </span>
     
@@ -224,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          749 字
         
       </span>
     
@@ -235,7 +237,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -388,17 +390,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
         id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Binary Tree
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
+      <div class="category-collapse collapse show" id="collapse-ec47297e27d93f23f404ea8a4f690619"
            role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
         
         
@@ -410,7 +412,7 @@
       
         <a href="/leetcode-blog/2026/02/21/LeetCode75-1448-Count-Good-Nodes-BT/" title="LeetCode75-1448-Count-Good-Nodes-BT"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-1448-Count-Good-Nodes-BT</span>
         </a>
       
@@ -581,17 +583,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Queue"
         id="heading-722ad2d05ecf4868b00c5484b82fd808" role="tab" data-toggle="collapse" href="#collapse-722ad2d05ecf4868b00c5484b82fd808"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Queue
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-722ad2d05ecf4868b00c5484b82fd808"
+      <div class="category-collapse collapse " id="collapse-722ad2d05ecf4868b00c5484b82fd808"
            role="tabpanel" aria-labelledby="heading-722ad2d05ecf4868b00c5484b82fd808">
         
         
@@ -612,7 +614,7 @@
       
         <a href="/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/" title="LeetCode75-933-Number-Of-Recent-Calls"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-933-Number-Of-Recent-Calls</span>
         </a>
       
@@ -955,13 +957,16 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-933-Number-Of-Recent-Calls</h1>
+            <h1 id="seo-header">LeetCode75-1448-Count-Good-Nodes-BT</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 <em><strong><code>Queue</code></strong></em>。<br>因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。</p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RecentCounter</span> &#123;<br>    Queue&lt;Integer&gt; queue;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RecentCounter</span><span class="hljs-params">()</span> &#123;<br>        queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">ping</span><span class="hljs-params">(<span class="hljs-type">int</span> t)</span> &#123;<br>        queue.offer(t);<br>        <span class="hljs-keyword">while</span> (!queue.isEmpty() &amp;&amp; queue.peek() &lt; t - <span class="hljs-number">3000</span>) &#123;<br>            queue.poll();<br>        &#125;<br>        <span class="hljs-keyword">return</span> queue.size();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote>
+<p>Q: 为什么要单独写一个 helper 方法？  </p>
+</blockquote>
+<p>因为题目函数 goodNodes(root) 只给一个参数，但 DFS 需要两个参数 (当前节点, 当前路径最大值)。</p>
+<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">goodNodes</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>        <span class="hljs-keyword">return</span> dfs(root, root.val);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(TreeNode node, <span class="hljs-type">int</span> max)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (node.val &gt;= max) &#123;<br>            count = <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">newMax</span> <span class="hljs-operator">=</span> Math.max(max, node.val);<br>        count += dfs(node.left, newMax);<br>        count += dfs(node.right, newMax);<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -989,7 +994,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Queue/" class="category-chain-item">Queue</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Binary-Tree/" class="category-chain-item">Binary Tree</a>
   
   
 
@@ -1008,9 +1013,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Hash-Set/" class="print-no-link">#Hash Set</a>
+        <a href="/leetcode-blog/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
       
-        <a href="/leetcode-blog/tags/Queue/" class="print-no-link">#Queue</a>
+        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
+      
+        <a href="/leetcode-blog/tags/Tree/" class="print-no-link">#Tree</a>
+      
+        <a href="/leetcode-blog/tags/bfs/" class="print-no-link">#bfs</a>
       
     </div>
   
@@ -1022,8 +1031,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-933-Number-Of-Recent-Calls</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/</div>
+      <div>LeetCode75-1448-Count-Good-Nodes-BT</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/21/LeetCode75-1448-Count-Good-Nodes-BT/</div>
     </div>
     <div class="license-meta">
       
@@ -1035,7 +1044,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月9日</div>
+          <div>2026年2月21日</div>
         </div>
       
       
@@ -1067,18 +1076,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/10/LeetCode75-649-Dota2/" title="LeetCode75-649-Dota2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-649-Dota2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/" title="LeetCode75-394-Decode-String">
-                        <span class="hidden-mobile">LeetCode75-394-Decode-String</span>
+                      <a href="/leetcode-blog/2026/02/15/LeetCode75-872-Leaf-Similar-Trees/" title="LeetCode75-872-Leaf-Similar-Trees">
+                        <span class="hidden-mobile">LeetCode75-872-Leaf-Similar-Trees</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
