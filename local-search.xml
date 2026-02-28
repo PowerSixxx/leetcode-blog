@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-1372-ZigZag</title>
+    <link href="/leetcode-blog/2026/02/28/LeetCode75-1372-ZigZag/"/>
+    <url>/leetcode-blog/2026/02/28/LeetCode75-1372-ZigZag/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><p>ZigZag &#x3D; alternate walking left and right</p><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><pre><code class="language-java">// ...</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>Binary Tree</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>dfs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-437-Path-Sum-III</title>
     <link href="/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/"/>
     <url>/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/</url>
