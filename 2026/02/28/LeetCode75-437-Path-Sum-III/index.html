@@ -19,22 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结 把每个节点的 next 指向它前一个节点。  原来： 1 → 2 → 3 → 4 → 5 → null变成： 5 → 4 → 3 → 2 → 1 → null ✅ 代码（Java）1234567891011121314151617181920212223&#x2F;** * Definition for singly-linked list. * public class ListNode">
+    <meta name="description" content="🧠 Summary of ThoughtsMethod 1For every node in the tree, treat it as a starting point, and count how many downward paths from that node sum to the target.   So the problem is divided into two parts:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-206-Reverse-Linked-List">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/14/LeetCode75-206-Reverse-Linked-List/index.html">
+<meta property="og:title" content="LeetCode75-437-Path-Sum-III">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结 把每个节点的 next 指向它前一个节点。  原来： 1 → 2 → 3 → 4 → 5 → null变成： 5 → 4 → 3 → 2 → 1 → null ✅ 代码（Java）1234567891011121314151617181920212223&#x2F;** * Definition for singly-linked list. * public class ListNode">
+<meta property="og:description" content="🧠 Summary of ThoughtsMethod 1For every node in the tree, treat it as a starting point, and count how many downward paths from that node sum to the target.   So the problem is divided into two parts:">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-14T22:34:47.000Z">
-<meta property="article:modified_time" content="2026-02-14T22:55:17.046Z">
+<meta property="article:published_time" content="2026-02-28T18:30:03.000Z">
+<meta property="article:modified_time" content="2026-02-28T20:27:02.413Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Linked List">
+<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="dfs">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-206-Reverse-Linked-List - Baowen Leetcode Notes</title>
+  <title>LeetCode75-437-Path-Sum-III - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-206-Reverse-Linked-List"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-437-Path-Sum-III"></span>
           
         </div>
 
@@ -211,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-14 17:34" pubdate>
-          2026年2月14日 下午
+        <time datetime="2026-02-28 13:30" pubdate>
+          2026年2月28日 下午
         </time>
       </span>
     
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          538 字
+          2.3k 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          5 分钟
+          20 分钟
         
       </span>
     
@@ -387,17 +388,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Binary Tree"
         id="heading-ec47297e27d93f23f404ea8a4f690619" role="tab" data-toggle="collapse" href="#collapse-ec47297e27d93f23f404ea8a4f690619"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Binary Tree
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-ec47297e27d93f23f404ea8a4f690619"
+      <div class="category-collapse collapse show" id="collapse-ec47297e27d93f23f404ea8a4f690619"
            role="tabpanel" aria-labelledby="heading-ec47297e27d93f23f404ea8a4f690619">
         
         
@@ -418,7 +419,7 @@
       
         <a href="/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/" title="LeetCode75-437-Path-Sum-III"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-437-Path-Sum-III</span>
         </a>
       
@@ -497,17 +498,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Linked List"
         id="heading-329e1d8c80090d1f92f32bfb53c98b4d" role="tab" data-toggle="collapse" href="#collapse-329e1d8c80090d1f92f32bfb53c98b4d"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Linked List
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-329e1d8c80090d1f92f32bfb53c98b4d"
+      <div class="category-collapse collapse " id="collapse-329e1d8c80090d1f92f32bfb53c98b4d"
            role="tabpanel" aria-labelledby="heading-329e1d8c80090d1f92f32bfb53c98b4d">
         
         
@@ -519,7 +520,7 @@
       
         <a href="/leetcode-blog/2026/02/14/LeetCode75-206-Reverse-Linked-List/" title="LeetCode75-206-Reverse-Linked-List"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-206-Reverse-Linked-List</span>
         </a>
       
@@ -991,16 +992,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-206-Reverse-Linked-List</h1>
+            <h1 id="seo-header">LeetCode75-437-Path-Sum-III</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote>
-<p>把每个节点的 next 指向它前一个节点。</p>
-</blockquote>
-<p>原来： <code>1 → 2 → 3 → 4 → 5 → null</code><br>变成： <code>5 → 4 → 3 → 2 → 1 → null</code></p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode() &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">pre</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> head;<br>        <span class="hljs-keyword">while</span> (curr != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">next</span> <span class="hljs-operator">=</span> curr.next;<br>            curr.next = pre;<br>            pre = curr;<br>            curr = next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> pre;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><p>For every node in the tree, treat it as a <strong>starting point</strong>, and count how many downward paths from that node sum to the target.  </p>
+<p>So the problem is divided into two parts:</p>
+<ol>
+<li>A function that counts valid paths starting from the current node</li>
+<li>Recursively apply this logic to every node in the tree</li>
+</ol>
+<p>For every node, I recursively count the number of downward paths starting from that node that sum to the target. Since each node may re-traverse its subtree, the worst case time complexity is O(n<sup>2</sup>).</p>
+<h3 id="Method-2-Prefix"><a href="#Method-2-Prefix" class="headerlink" title="Method 2: Prefix"></a>Method 2: Prefix</h3><ul>
+<li>Use <code>HashMap</code> to store the prefix, and if there exist <code>currSum - target</code>, which means we find the values sum equals to target.</li>
+<li>Backtrack is important!</li>
+</ul>
+<h2 id="Code（Java）"><a href="#Code（Java）" class="headerlink" title="Code（Java）"></a>Code（Java）</h2><ol>
+<li>Time Complexity: O(n<sup>2</sup>)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">pathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> targetSum)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> countFun(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countFun</span><span class="hljs-params">(TreeNode node, <span class="hljs-type">long</span> target)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (node.val == target) &#123;<br>            count++;<br>        &#125;<br>        count += countFun(node.left, target - node.val);<br>        count += countFun(node.right, target - node.val);<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>O(n)</li>
+</ol>
+<p>Using Prefix Sum, don’t forget to backtrack!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">pathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> targetSum)</span> &#123;<br>        Map&lt;Long, Integer&gt; prefixMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        prefixMap.put(<span class="hljs-number">0L</span>, <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> dfs(root, <span class="hljs-number">0</span>, targetSum, prefixMap);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(TreeNode node, <span class="hljs-type">long</span> currSum, <span class="hljs-type">int</span> target, Map&lt;Long, Integer&gt; map)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        currSum += node.val;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> map.getOrDefault(currSum - target, <span class="hljs-number">0</span>);<br>        map.put(currSum, map.getOrDefault(currSum, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        count += dfs(node.left, currSum, target, map);<br>        count += dfs(node.right, currSum, target, map);<br>        <span class="hljs-comment">// Backtrack</span><br>        map.put(currSum, map.get(currSum) - <span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -1028,7 +1044,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Linked-List/" class="category-chain-item">Linked List</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Binary-Tree/" class="category-chain-item">Binary Tree</a>
   
   
 
@@ -1047,7 +1063,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Linked-List/" class="print-no-link">#Linked List</a>
+        <a href="/leetcode-blog/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
+      
+        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
       
     </div>
   
@@ -1059,8 +1077,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-206-Reverse-Linked-List</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/14/LeetCode75-206-Reverse-Linked-List/</div>
+      <div>LeetCode75-437-Path-Sum-III</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/</div>
     </div>
     <div class="license-meta">
       
@@ -1072,7 +1090,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月14日</div>
+          <div>2026年2月28日</div>
         </div>
       
       
@@ -1104,18 +1122,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/15/LeetCode75-872-Leaf-Similar-Trees/" title="LeetCode75-872-Leaf-Similar-Trees">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-872-Leaf-Similar-Trees</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/13/LeetCode75-328-Odd-Even-Linked-List/" title="LeetCode75-328-Odd-Even-Linked-List">
-                        <span class="hidden-mobile">LeetCode75-328-Odd-Even-Linked-List</span>
+                      <a href="/leetcode-blog/2026/02/26/LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits/" title="LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits">
+                        <span class="hidden-mobile">LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

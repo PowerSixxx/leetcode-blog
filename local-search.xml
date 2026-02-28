@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-437-Path-Sum-III</title>
+    <link href="/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/"/>
+    <url>/leetcode-blog/2026/02/28/LeetCode75-437-Path-Sum-III/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><p>For every node in the tree, treat it as a <strong>starting point</strong>, and count how many downward paths from that node sum to the target.  </p><p>So the problem is divided into two parts:</p><ol><li>A function that counts valid paths starting from the current node</li><li>Recursively apply this logic to every node in the tree</li></ol><p>For every node, I recursively count the number of downward paths starting from that node that sum to the target. Since each node may re-traverse its subtree, the worst case time complexity is O(n<sup>2</sup>).</p><h3 id="Method-2-Prefix"><a href="#Method-2-Prefix" class="headerlink" title="Method 2: Prefix"></a>Method 2: Prefix</h3><ul><li>Use <code>HashMap</code> to store the prefix, and if there exist <code>currSum - target</code>, which means we find the values sum equals to target.</li><li>Backtrack is important!</li></ul><h2 id="Code（Java）"><a href="#Code（Java）" class="headerlink" title="Code（Java）"></a>Code（Java）</h2><ol><li>Time Complexity: O(n<sup>2</sup>)</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">pathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> targetSum)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> countFun(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countFun</span><span class="hljs-params">(TreeNode node, <span class="hljs-type">long</span> target)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (node.val == target) &#123;<br>            count++;<br>        &#125;<br>        count += countFun(node.left, target - node.val);<br>        count += countFun(node.right, target - node.val);<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ol start="2"><li>O(n)</li></ol><p>Using Prefix Sum, don’t forget to backtrack!</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">pathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> targetSum)</span> &#123;<br>        Map&lt;Long, Integer&gt; prefixMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        prefixMap.put(<span class="hljs-number">0L</span>, <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> dfs(root, <span class="hljs-number">0</span>, targetSum, prefixMap);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(TreeNode node, <span class="hljs-type">long</span> currSum, <span class="hljs-type">int</span> target, Map&lt;Long, Integer&gt; map)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        currSum += node.val;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> map.getOrDefault(currSum - target, <span class="hljs-number">0</span>);<br>        map.put(currSum, map.getOrDefault(currSum, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        count += dfs(node.left, currSum, target, map);<br>        count += dfs(node.right, currSum, target, map);<br>        <span class="hljs-comment">// Backtrack</span><br>        map.put(currSum, map.get(currSum) - <span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Binary Tree</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>dfs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits</title>
     <link href="/leetcode-blog/2026/02/26/LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits/"/>
     <url>/leetcode-blog/2026/02/26/LeetCode-1356-Sort-Integers-By-Number-Of-1-Bits/</url>
@@ -22,11 +53,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
-      
-      <tag>Array</tag>
       
       <tag>Bit Manipulation</tag>
       
@@ -57,13 +88,13 @@
       
       <tag>Interview</tag>
       
+      <tag>Array</tag>
+      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
       
       <tag>Greedy</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -667,9 +698,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -698,11 +729,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -795,9 +826,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -940,11 +971,11 @@
       
       <tag>Interview</tag>
       
-      <tag>Array</tag>
-      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1000,9 +1031,9 @@
     
     <tags>
       
-      <tag>HashMap</tag>
-      
       <tag>Array</tag>
+      
+      <tag>HashMap</tag>
       
       <tag>Easy</tag>
       
