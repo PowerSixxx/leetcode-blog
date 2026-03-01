@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode75-236-LCA-BT</title>
+    <link href="/leetcode-blog/2026/03/01/LeetCode75-236-LCA-BT/"/>
+    <url>/leetcode-blog/2026/03/01/LeetCode75-236-LCA-BT/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><p>We find p and q <em><strong>traverse from bottom to top</strong></em>, but it’s generally believe that we can only traverse from top to bottom. But how can we traverse from bottom to top? Although we cannot traverse from bottom to top, we still can deal the order with binary tree from bottom to top. So we can think about backtrack. Remember that the order(postorder traversal) for backtrack is <em><strong>left -&gt; right -&gt; root</strong></em>.</p><ul><li>if <code>root == null</code>, then return null.</li><li>if left node returns not NULL, then it may consist p or q. else if right node returns not NULL, then it may consist p or q. So left treeNode and right treeNode have p and q, so the current root treeNode is lowest common ancestor.</li><li>Then I used postorder traversal, first traverse left treeNode, and then traverse right treeNode, to get left and right recursive’s results. After that, I considered the logic of root (medium): <ul><li><code>if (left != null &amp;&amp; right != null)</code>, so the current root is LCA. Then continuously return the current root to the top.</li></ul><img src="/leetcode-blog/2026/03/01/LeetCode75-236-LCA-BT/returnRoot.png" class=""><ul><li><code>if (left == null &amp;&amp; right != null)</code>, return right. (if left doesn’t find p or q, however, right exists p or q, then continuously return right result)</li></ul><img src="/leetcode-blog/2026/03/01/LeetCode75-236-LCA-BT/oneSideNull.png" class=""><ul><li><code>if (left != null &amp;&amp; right == null)</code>, return left.</li><li><code>if (left == null &amp;&amp; right == null)</code>, return null.</li></ul></li></ul><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">lowestCommonAncestor</span><span class="hljs-params">(TreeNode root, TreeNode p, TreeNode q)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (root == p || root == q) &#123;<br>            <span class="hljs-keyword">return</span> root;<br>        &#125;<br>        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> lowestCommonAncestor(root.left, p, q);<br>        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> lowestCommonAncestor(root.right, p, q);<br>        <span class="hljs-keyword">if</span> (left != <span class="hljs-literal">null</span> &amp;&amp; right != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> root;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left == <span class="hljs-literal">null</span> &amp;&amp; right != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> right;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left != <span class="hljs-literal">null</span> &amp;&amp; right == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> left;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>Binary Tree</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>dfs</tag>
+      
+      <tag>BackTrack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-1372-ZigZag</title>
     <link href="/leetcode-blog/2026/02/28/LeetCode75-1372-ZigZag/"/>
     <url>/leetcode-blog/2026/02/28/LeetCode75-1372-ZigZag/</url>
@@ -14,6 +45,8 @@
     <categories>
       
       <category>LeetCode</category>
+      
+      <category>75</category>
       
       <category>Binary Tree</category>
       
