@@ -15,8 +15,20 @@
       
       <category>LeetCode</category>
       
+      <category>75</category>
+      
+      <category>BFS</category>
+      
     </categories>
     
+    
+    <tags>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>bfs</tag>
+      
+    </tags>
     
   </entry>
   
@@ -167,11 +179,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>Array</tag>
       
       <tag>Bit Manipulation</tag>
       
@@ -202,13 +214,13 @@
       
       <tag>Interview</tag>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
       
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -812,9 +824,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -843,11 +855,11 @@
     
     <tags>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -940,9 +952,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1085,11 +1097,11 @@
       
       <tag>Interview</tag>
       
+      <tag>Array</tag>
+      
       <tag>Prefix</tag>
       
       <tag>Suffix</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -1145,9 +1157,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
+      
+      <tag>Array</tag>
       
       <tag>Easy</tag>
       
