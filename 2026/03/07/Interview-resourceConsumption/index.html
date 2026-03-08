@@ -19,25 +19,27 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
+    <meta name="description" content="Problem OverviewThe goal is to calculate the total resource consumption of tasks selected through a specific termination process in Amazon’s Elastic Container Service (ECS). You are given an array res">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Interview:ProductExceptSelf">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/index.html">
+<meta property="og:title" content="Interview-resourceConsumption">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/03/07/Interview-resourceConsumption/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="❓ 问题给你一个整数数组 nums，你要生成一个新的数组 res，满足：res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。 限制条件：    不能用除法   时间复杂度要 O(n)  🧠 思路总结 对任意一个位置i:当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积  使用前缀 &amp; 后缀法 ✅ 代码（Java）12345678910111">
+<meta property="og:description" content="Problem OverviewThe goal is to calculate the total resource consumption of tasks selected through a specific termination process in Amazon’s Elastic Container Service (ECS). You are given an array res">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-10T21:12:02.000Z">
-<meta property="article:modified_time" content="2026-02-25T22:06:15.498Z">
+<meta property="article:published_time" content="2026-03-08T03:00:50.000Z">
+<meta property="article:modified_time" content="2026-03-08T04:25:33.513Z">
 <meta property="article:author" content="Baowen Liu">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Interview">
-<meta property="article:tag" content="Prefix">
-<meta property="article:tag" content="Suffix">
+<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Heap">
+<meta property="article:tag" content="Linked List">
+<meta property="article:tag" content="Queue">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Interview:ProductExceptSelf - Baowen Leetcode Notes</title>
+  <title>Interview-resourceConsumption - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Interview:ProductExceptSelf"></span>
+            <span id="subtitle" data-typed-text="Interview-resourceConsumption"></span>
           
         </div>
 
@@ -214,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-10 16:12" pubdate>
-          2026年1月10日 下午
+        <time datetime="2026-03-07 22:00" pubdate>
+          2026年3月7日 晚上
         </time>
       </span>
     
@@ -226,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          476 字
+          2.5k 字
         
       </span>
     
@@ -237,7 +239,7 @@
         
         
         
-          4 分钟
+          21 分钟
         
       </span>
     
@@ -308,17 +310,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Amazon"
         id="heading-b3b3a6ac74ecbd56bcdbefa4799fb9df" role="tab" data-toggle="collapse" href="#collapse-b3b3a6ac74ecbd56bcdbefa4799fb9df"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Amazon
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-b3b3a6ac74ecbd56bcdbefa4799fb9df"
+      <div class="category-collapse collapse show" id="collapse-b3b3a6ac74ecbd56bcdbefa4799fb9df"
            role="tabpanel" aria-labelledby="heading-b3b3a6ac74ecbd56bcdbefa4799fb9df">
         
         
@@ -330,7 +332,7 @@
       
         <a href="/leetcode-blog/2026/03/07/Interview-resourceConsumption/" title="Interview-resourceConsumption"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Interview-resourceConsumption</span>
         </a>
       
@@ -382,17 +384,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="N/A"
         id="heading-382b0f5185773fa0f67a8ed8056c7759" role="tab" data-toggle="collapse" href="#collapse-382b0f5185773fa0f67a8ed8056c7759"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         N/A
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-382b0f5185773fa0f67a8ed8056c7759"
+      <div class="category-collapse collapse " id="collapse-382b0f5185773fa0f67a8ed8056c7759"
            role="tabpanel" aria-labelledby="heading-382b0f5185773fa0f67a8ed8056c7759">
         
         
@@ -404,7 +406,7 @@
       
         <a href="/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/" title="Interview:ProductExceptSelf"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Interview:ProductExceptSelf</span>
         </a>
       
@@ -431,23 +433,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Interview:ProductExceptSelf</h1>
+            <h1 id="seo-header">Interview-resourceConsumption</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="❓-问题"><a href="#❓-问题" class="headerlink" title="❓ 问题"></a>❓ 问题</h2><p>给你一个整数数组 nums，你要生成一个新的数组 res，满足：<br>res[i] &#x3D; 除了 nums[i] 之外，数组里所有其他数的乘积。</p>
-<p><strong>限制条件：</strong>  </p>
-<ol>
-<li>不能用除法  </li>
-<li>时间复杂度要 O(n)</li>
-</ol>
-<h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><blockquote>
-<p>对任意一个位置i:<br>当前位置的结果 &#x3D; 左边所有数的乘积 ✖️ 右边所有数的乘积</p>
-</blockquote>
-<p>使用前缀 &amp; 后缀法</p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  <span class="hljs-comment">// Left</span><br>  res[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">// it is the most left element</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>      res[i] = res[i - <span class="hljs-number">1</span>] * nums[i - <span class="hljs-number">1</span>];<br>  &#125;<br>  <span class="hljs-comment">// Right</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>      res[i] *= right;<br>      right *= nums[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+                <h2 id="Problem-Overview"><a href="#Problem-Overview" class="headerlink" title="Problem Overview"></a>Problem Overview</h2><p>The goal is to calculate the total resource consumption of tasks selected through a specific termination process in Amazon’s Elastic Container Service (ECS).</p>
+<p>You are given an array <code>resourceConsumption</code> representing n tasks. You must repeat the following steps until <strong><u>no tasks remain</u></strong>:</p>
+<ul>
+<li>Identify the Target: Find the task with the <u>lowest</u> resource consumption value. If multiple tasks have the same minimum value, select the one with the smallest index.</li>
+<li>Record the Value: Add the value of this selected task to your running total.</li>
+<li>Remove Tasks: Remove the selected task and its immediate neighbors (the tasks directly to its left and right) from the array.</li>
+<li>Update Adjacency: After removal, the remaining tasks shift to become “adjacent” to each other (the gap closes).</li>
+<li>Return the final <strong>sum</strong> of all selected tasks’ resource consumption values.</li>
+</ul>
+<p>Example: If you have [4, 3, 2, 1], you pick 1 (the minimum). Its neighbor is 2. Both are removed, leaving [4, 3]. Next, you pick 3 (the new minimum), and its neighbor 4 is removed. Total &#x3D; $1 + 3 &#x3D; 4$.</p>
+<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>A crucial part of this code is the Right-to-Left removal sequence: </p>
+<ul>
+<li>Right Neighbor ($i+1$)</li>
+<li>Current Task ($i$)</li>
+<li>Left Neighbor ($i-1$)</li>
+</ul>
+<p>By deleting the rightmost neighbor first, the code prevents “index shifting” from affecting the positions of the remaining tasks we intend to remove in the same cycle.</p>
+<p>The use of <code>ArrayList.remove()</code> is clever here because it automatically shifts subsequent elements. This naturally “closes the gap”, making tasks that were previously separated become neighbors, which perfectly matches the problem’s requirements.</p>
+<h3 id="Doubly-Linked-List-Min-Priority-Queue"><a href="#Doubly-Linked-List-Min-Priority-Queue" class="headerlink" title="Doubly Linked List &amp; Min-Priority Queue"></a>Doubly Linked List &amp; Min-Priority Queue</h3><p>The goal is to reduce the time complexity from $O(n^2)$ to $O(n \log n)$ by decoupling the “finding the minimum” step from the “removing elements” step. We use a Min-Priority Queue for efficient selection and a Doubly Linked List to maintain task adjacency in constant time (delete element).</p>
+<h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Result</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">selectLeastResourceTasks</span><span class="hljs-params">(List&lt;Integer&gt; resourceConsumption)</span> &#123;<br>        <span class="hljs-comment">// Convert to ArrayList so as to easier to remove elements</span><br>        List&lt;Integer&gt; tasks = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(resourceConsumption);<br>        <span class="hljs-type">long</span> <span class="hljs-variable">totalResult</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (!tasks.isEmpty()) &#123;<br>            <span class="hljs-comment">// Find the minimum value&#x27;s index</span><br>            <span class="hljs-type">int</span> <span class="hljs-variable">minVal</span> <span class="hljs-operator">=</span> tasks.get(<span class="hljs-number">0</span>);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">minIdx</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; tasks.size(); i++) &#123;<br>                <span class="hljs-keyword">if</span> (tasks.get(i) &lt; minVal) &#123;<br>                    minVal = tasks.get(i);<br>                    minIdx = i;<br>                &#125;<br>            &#125;<br>            totalResult += minVal;<br><br>            <span class="hljs-comment">// Remove elements: right -&gt; medium -&gt; left</span><br>            <br>            <span class="hljs-comment">// Right</span><br>            <span class="hljs-keyword">if</span> (minIdx + <span class="hljs-number">1</span> &lt; tasks.size()) &#123;<br>                tasks.remove(minIdx + <span class="hljs-number">1</span>);<br>            &#125;<br>            <br>            <span class="hljs-comment">// current (medium)</span><br>            tasks.remove(minIdx);<br>            <br>            <span class="hljs-comment">// Left</span><br>            <span class="hljs-keyword">if</span> (minIdx - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span>) &#123;<br>                tasks.remove(minIdx - <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>) totalResult;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -470,7 +480,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/Interview/N-A/" class="category-chain-item">N/A</a>
+  <a href="/leetcode-blog/categories/Interview/Amazon/" class="category-chain-item">Amazon</a>
   
   
 
@@ -487,13 +497,17 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Interview/" class="print-no-link">#Interview</a>
+        <a href="/leetcode-blog/tags/Greedy/" class="print-no-link">#Greedy</a>
       
         <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/leetcode-blog/tags/Prefix/" class="print-no-link">#Prefix</a>
+        <a href="/leetcode-blog/tags/Simulation/" class="print-no-link">#Simulation</a>
       
-        <a href="/leetcode-blog/tags/Suffix/" class="print-no-link">#Suffix</a>
+        <a href="/leetcode-blog/tags/Heap/" class="print-no-link">#Heap</a>
+      
+        <a href="/leetcode-blog/tags/Queue/" class="print-no-link">#Queue</a>
+      
+        <a href="/leetcode-blog/tags/Linked-List/" class="print-no-link">#Linked List</a>
       
     </div>
   
@@ -505,8 +519,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Interview:ProductExceptSelf</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/01/10/Interview-ProductExceptSelf/</div>
+      <div>Interview-resourceConsumption</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/03/07/Interview-resourceConsumption/</div>
     </div>
     <div class="license-meta">
       
@@ -518,7 +532,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月10日</div>
+          <div>2026年3月7日</div>
         </div>
       
       
@@ -550,18 +564,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/01/11/Leetcode-101-Symmetric-Tree/" title="Leetcode-101-Symmetric-Tree">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode-101-Symmetric-Tree</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2025/12/29/Leetcode-144-Binary-Tree-Preorder/" title="Leetcode-144-Binary-Tree-Preorder">
-                        <span class="hidden-mobile">Leetcode-144-Binary-Tree-Preorder</span>
+                      <a href="/leetcode-blog/2026/03/07/LeetCode75-1161-Max-Level-Sum/" title="LeetCode75-1161-Max-Level-Sum">
+                        <span class="hidden-mobile">LeetCode75-1161-Max-Level-Sum</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
