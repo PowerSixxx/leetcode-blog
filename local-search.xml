@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>LeetCode75-1161-Max-Level-Sum</title>
+    <link href="/leetcode-blog/2026/03/07/LeetCode75-1161-Max-Level-Sum/"/>
+    <url>/leetcode-blog/2026/03/07/LeetCode75-1161-Max-Level-Sum/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>To solve this problem, we use Breadth-First Search (BFS) to traverse the binary tree level by level. We maintain a <code>queue</code> to store nodes for BFS traversal. For each level, we calculate the sum of all node values and compare it with the current maximum sum. If the current level sum is greater than the maximum sum seen so far, we update the maximum sum and record the corresponding level number.</p><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxLevelSum</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxSum</span> <span class="hljs-operator">=</span> Integer.MIN_VALUE;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">level</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">resLev</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>        queue.offer(root);<br>        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> queue.size();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;   <br>                <span class="hljs-type">TreeNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> queue.poll(); <br>                sum += node.val;<br>                <span class="hljs-keyword">if</span> (node.left != <span class="hljs-literal">null</span>) queue.offer(node.left);<br>                <span class="hljs-keyword">if</span> (node.right != <span class="hljs-literal">null</span>) queue.offer(node.right);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (sum &gt; maxSum) &#123;<br>                maxSum = sum;<br>                resLev = level;<br>            &#125;<br>            level++;  <br>        &#125;<br>        <span class="hljs-keyword">return</span> resLev;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-199-BT-Right-Side-View</title>
     <link href="/leetcode-blog/2026/03/07/LeetCode75-199-BT-Right-Side-View/"/>
     <url>/leetcode-blog/2026/03/07/LeetCode75-199-BT-Right-Side-View/</url>
@@ -152,9 +171,9 @@
       
       <tag>HashMap</tag>
       
-      <tag>Bit Manipulation</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
