@@ -27,7 +27,7 @@
 <meta property="og:description" content="Problem OverviewThe goal is to calculate the total resource consumption of tasks selected through a specific termination process in Amazon’s Elastic Container Service (ECS). You are given an array res">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-08T03:00:50.000Z">
-<meta property="article:modified_time" content="2026-03-08T04:25:33.513Z">
+<meta property="article:modified_time" content="2026-03-08T05:17:55.532Z">
 <meta property="article:author" content="Baowen Liu">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Greedy">
@@ -289,7 +289,7 @@
         aria-expanded="true"
       >
         Interview
-        <span class="list-group-count">(3)</span>
+        <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -316,7 +316,7 @@
         aria-expanded="true"
       >
         Amazon
-        <span class="list-group-count">(1)</span>
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -327,6 +327,15 @@
           
   <div class="category-post-list">
     
+    
+      
+      
+        <a href="/leetcode-blog/2026/03/07/Interview-Min-Total-Increment-for-NonDecreasing-Array/" title="Interview-Min-Total-Increment-for-NonDecreasing-Array"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Interview-Min-Total-Increment-for-NonDecreasing-Array</span>
+        </a>
+      
     
       
       
@@ -447,7 +456,7 @@
 <li>Update Adjacency: After removal, the remaining tasks shift to become “adjacent” to each other (the gap closes).</li>
 <li>Return the final <strong>sum</strong> of all selected tasks’ resource consumption values.</li>
 </ul>
-<p>Example: If you have [4, 3, 2, 1], you pick 1 (the minimum). Its neighbor is 2. Both are removed, leaving [4, 3]. Next, you pick 3 (the new minimum), and its neighbor 4 is removed. Total &#x3D; $1 + 3 &#x3D; 4$.</p>
+<p>Example: If you have $[4, 3, 2, 1]$, you pick 1 (the minimum). Its neighbor is 2. Both are removed, leaving $[4, 3]$. Next, you pick 3 (the new minimum), and its neighbor 4 is removed. $Total &#x3D; 1 + 3 &#x3D; 4$.</p>
 <h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>A crucial part of this code is the Right-to-Left removal sequence: </p>
 <ul>
 <li>Right Neighbor ($i+1$)</li>
@@ -456,7 +465,7 @@
 </ul>
 <p>By deleting the rightmost neighbor first, the code prevents “index shifting” from affecting the positions of the remaining tasks we intend to remove in the same cycle.</p>
 <p>The use of <code>ArrayList.remove()</code> is clever here because it automatically shifts subsequent elements. This naturally “closes the gap”, making tasks that were previously separated become neighbors, which perfectly matches the problem’s requirements.</p>
-<h3 id="Doubly-Linked-List-Min-Priority-Queue"><a href="#Doubly-Linked-List-Min-Priority-Queue" class="headerlink" title="Doubly Linked List &amp; Min-Priority Queue"></a>Doubly Linked List &amp; Min-Priority Queue</h3><p>The goal is to reduce the time complexity from $O(n^2)$ to $O(n \log n)$ by decoupling the “finding the minimum” step from the “removing elements” step. We use a Min-Priority Queue for efficient selection and a Doubly Linked List to maintain task adjacency in constant time (delete element).</p>
+<h3 id="Doubly-Linked-List-Min-Priority-Queue"><a href="#Doubly-Linked-List-Min-Priority-Queue" class="headerlink" title="Doubly Linked List &amp; Min-Priority Queue"></a>Doubly Linked List &amp; Min-Priority Queue</h3><p>The goal is to reduce the time complexity from $O(n^2) \rightarrow O(n \log n)$ by decoupling the “finding the minimum” step from the “removing elements” step. We use a Min-Priority Queue for efficient selection and a Doubly Linked List to maintain task adjacency in constant time (delete element).</p>
 <h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Result</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">selectLeastResourceTasks</span><span class="hljs-params">(List&lt;Integer&gt; resourceConsumption)</span> &#123;<br>        <span class="hljs-comment">// Convert to ArrayList so as to easier to remove elements</span><br>        List&lt;Integer&gt; tasks = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(resourceConsumption);<br>        <span class="hljs-type">long</span> <span class="hljs-variable">totalResult</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (!tasks.isEmpty()) &#123;<br>            <span class="hljs-comment">// Find the minimum value&#x27;s index</span><br>            <span class="hljs-type">int</span> <span class="hljs-variable">minVal</span> <span class="hljs-operator">=</span> tasks.get(<span class="hljs-number">0</span>);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">minIdx</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; tasks.size(); i++) &#123;<br>                <span class="hljs-keyword">if</span> (tasks.get(i) &lt; minVal) &#123;<br>                    minVal = tasks.get(i);<br>                    minIdx = i;<br>                &#125;<br>            &#125;<br>            totalResult += minVal;<br><br>            <span class="hljs-comment">// Remove elements: right -&gt; medium -&gt; left</span><br>            <br>            <span class="hljs-comment">// Right</span><br>            <span class="hljs-keyword">if</span> (minIdx + <span class="hljs-number">1</span> &lt; tasks.size()) &#123;<br>                tasks.remove(minIdx + <span class="hljs-number">1</span>);<br>            &#125;<br>            <br>            <span class="hljs-comment">// current (medium)</span><br>            tasks.remove(minIdx);<br>            <br>            <span class="hljs-comment">// Left</span><br>            <span class="hljs-keyword">if</span> (minIdx - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span>) &#123;<br>                tasks.remove(minIdx - <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>) totalResult;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
@@ -564,6 +573,12 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/leetcode-blog/2026/03/07/Interview-Min-Total-Increment-for-NonDecreasing-Array/" title="Interview-Min-Total-Increment-for-NonDecreasing-Array">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Interview-Min-Total-Increment-for-NonDecreasing-Array</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
@@ -626,6 +641,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -818,6 +839,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/leetcode-blog/js/local-search.js" ></script>
 
