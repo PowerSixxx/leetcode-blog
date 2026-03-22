@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-450-Delete-Node-in-BST</title>
+    <link href="/leetcode-blog/2026/03/14/LeetCode75-450-Delete-Node-in-BST/"/>
+    <url>/leetcode-blog/2026/03/14/LeetCode75-450-Delete-Node-in-BST/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><ol><li>Locate key in BST, use the property of BST below:<blockquote><p>BST property: <code>leftNode &lt; root &lt; rightNode</code></p></blockquote><ul><li>if <code>key &lt; root.val</code>, then call left tree recursively</li><li>if <code>key &gt; root.val</code>, then call right tree recursively</li></ul></li><li>If the key node is found, then <u>delete</u>:<ul><li>if there is NO left tree, then return the right tree</li><li>if there is NO right tree, then return the left tree</li><li>if left and right tree are exist:<ul><li>find the leftmost of the right tree, and use this value to replace the previous node key</li></ul></li></ul></li></ol><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">deleteNode</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> key)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">if</span> (key &lt; root.val) &#123;<br>            root.left = deleteNode(root.left, key);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key &gt; root.val) &#123;<br>            root.right = deleteNode(root.right, key);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">return</span> root.right;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">return</span> root.left;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-type">TreeNode</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> minNode(root.right);<br>                root.val = min.val;<br>                root.right = deleteNode(root.right, min.val);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br>    <span class="hljs-keyword">private</span> TreeNode <span class="hljs-title function_">minNode</span><span class="hljs-params">(TreeNode node)</span> &#123;<br>        <span class="hljs-keyword">while</span> (node.left != <span class="hljs-literal">null</span>) &#123;<br>            node = node.left;<br>        &#125;<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>BST</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>BST</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-700-Search-in-BST</title>
     <link href="/leetcode-blog/2026/03/08/LeetCode75-700-Search-in-BST/"/>
     <url>/leetcode-blog/2026/03/08/LeetCode75-700-Search-in-BST/</url>
@@ -117,9 +146,9 @@
     
     <tags>
       
-      <tag>bfs</tag>
-      
       <tag>Binary Tree</tag>
+      
+      <tag>bfs</tag>
       
     </tags>
     
@@ -148,11 +177,11 @@
     
     <tags>
       
-      <tag>bfs</tag>
-      
       <tag>Binary Tree</tag>
       
       <tag>dfs</tag>
+      
+      <tag>bfs</tag>
       
     </tags>
     
@@ -309,11 +338,11 @@
       
       <tag>Interview</tag>
       
-      <tag>Greedy</tag>
-      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -342,13 +371,13 @@
     
     <tags>
       
-      <tag>bfs</tag>
-      
       <tag>Binary Tree</tag>
       
       <tag>dfs</tag>
       
       <tag>Tree</tag>
+      
+      <tag>bfs</tag>
       
     </tags>
     
