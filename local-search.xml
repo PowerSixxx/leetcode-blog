@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions</title>
+    <link href="/leetcode-blog/2026/04/09/LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions/"/>
+    <url>/leetcode-blog/2026/04/09/LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><blockquote><p>Sort + Binary Search for the first valid threshold</p></blockquote><ol><li>For each spell, count how many potions satisfy: <code>spell * potion &gt;= success</code></li><li>If a potion works, then all stronger potions will also work. So this actually transfer the quesiton to asking what is the index of threshold (Binary Search)</li><li>potion &gt;&#x3D; ceil(success &#x2F; spell) <ul><li><code>ceil(a / b) = (a + b - 1) / b</code></li></ul></li></ol><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] successfulPairs(<span class="hljs-type">int</span>[] spells, <span class="hljs-type">int</span>[] potions, <span class="hljs-type">long</span> success) &#123;<br>        Arrays.sort(potions);<br>        <span class="hljs-type">int</span>[] pairs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[spells.length];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> potions.length;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; spells.length; i++) &#123;<br>            <span class="hljs-type">long</span> <span class="hljs-variable">need</span> <span class="hljs-operator">=</span> (success + spells[i] - <span class="hljs-number">1</span>) / spells[i];<br>            <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> m - <span class="hljs-number">1</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">idx</span> <span class="hljs-operator">=</span> m;<br>            <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> left + (right - left) / <span class="hljs-number">2</span>;<br>                <span class="hljs-keyword">if</span> (need &lt;= potions[mid]) &#123;<br>                    idx = mid;<br>                    right = mid - <span class="hljs-number">1</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    left = mid + <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>            pairs[i] = m - idx;<br>        &#125;<br>        <span class="hljs-keyword">return</span> pairs;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Binary Search</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Sorting</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-374-Guess-Number</title>
     <link href="/leetcode-blog/2026/04/09/LeetCode75-374-Guess-Number/"/>
     <url>/leetcode-blog/2026/04/09/LeetCode75-374-Guess-Number/</url>
