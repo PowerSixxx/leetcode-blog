@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode75-374-Guess-Number</title>
+    <link href="/leetcode-blog/2026/04/09/LeetCode75-374-Guess-Number/"/>
+    <url>/leetcode-blog/2026/04/09/LeetCode75-374-Guess-Number/</url>
+    
+    <content type="html"><![CDATA[<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><ul><li>Binary Search</li><li>Update <code>low</code> and <code>high</code> to <code>mid + 1</code> or <code>mid - 1</code></li><li><code>mid = low + (high - low) / 2</code></li><li>return -1</li></ul><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/** </span><br><span class="hljs-comment"> * Forward declaration of guess API.</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span>  num   your guess</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span>      -1 if num is higher than the picked number</span><br><span class="hljs-comment"> *      1 if num is lower than the picked number</span><br><span class="hljs-comment"> *               otherwise return 0</span><br><span class="hljs-comment"> * int guess(int num);</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">GuessGame</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">guessNumber</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">low</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">high</span> <span class="hljs-operator">=</span> n;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (low &lt;= high) &#123;<br>            mid = low + (high - low) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (guess(mid) == -<span class="hljs-number">1</span>) &#123;<br>                high = mid - <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (guess(mid) == <span class="hljs-number">1</span>) &#123;<br>                low = mid + <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> mid;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>Binary Search</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-547-Number-of-Province</title>
     <link href="/leetcode-blog/2026/04/07/LeetCode75-547-Number-of-Province/"/>
     <url>/leetcode-blog/2026/04/07/LeetCode75-547-Number-of-Province/</url>
@@ -138,9 +167,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
       <tag>Simulation</tag>
       
@@ -332,11 +361,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>Array</tag>
       
       <tag>Bit Manipulation</tag>
       
@@ -365,8 +394,6 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Interview</tag>
       
       <tag>HashMap</tag>
@@ -374,6 +401,8 @@
       <tag>Sorting</tag>
       
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -977,9 +1006,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1105,9 +1134,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1248,9 +1277,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Interview</tag>
+      
+      <tag>Array</tag>
       
       <tag>Prefix</tag>
       
@@ -1310,9 +1339,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
+      
+      <tag>Array</tag>
       
       <tag>Easy</tag>
       
