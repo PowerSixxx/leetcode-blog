@@ -19,23 +19,23 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+    <meta name="description" content="🧠 Summary of Thoughts Use the bitwise XOR (^) operation to cancel out duplicate numbers.  XOR has two important properties:  a ^ a &#x3D; 0 → same numbers cancel out a ^ 0 &#x3D; a → zero does not af">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-933-Number-Of-Recent-Calls">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/index.html">
+<meta property="og:title" content="LeetCode75-136-Single-Number">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/04/11/LeetCode75-136-Single-Number/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 思路总结当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 Queue。因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。 ✅ 代码（Java）1234567891011121314class RecentCounter &#123;    Queue&lt;Integer&gt; q">
+<meta property="og:description" content="🧠 Summary of Thoughts Use the bitwise XOR (^) operation to cancel out duplicate numbers.  XOR has two important properties:  a ^ a &#x3D; 0 → same numbers cancel out a ^ 0 &#x3D; a → zero does not af">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-09T20:23:13.000Z">
-<meta property="article:modified_time" content="2026-02-09T21:09:31.684Z">
+<meta property="article:published_time" content="2026-04-11T21:48:26.000Z">
+<meta property="article:modified_time" content="2026-04-11T21:51:46.802Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Hash Set">
-<meta property="article:tag" content="Queue">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Bit Manipulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode75-933-Number-Of-Recent-Calls - Baowen Leetcode Notes</title>
+  <title>LeetCode75-136-Single-Number - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-933-Number-Of-Recent-Calls"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-136-Single-Number"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-09 15:23" pubdate>
-          2026年2月9日 下午
+        <time datetime="2026-04-11 17:48" pubdate>
+          2026年4月11日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          467 字
         
       </span>
     
@@ -590,17 +590,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Bit Manipulation"
         id="heading-4a0d779ed99e9badddd6af4d58cfebd0" role="tab" data-toggle="collapse" href="#collapse-4a0d779ed99e9badddd6af4d58cfebd0"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Bit Manipulation
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-4a0d779ed99e9badddd6af4d58cfebd0"
+      <div class="category-collapse collapse show" id="collapse-4a0d779ed99e9badddd6af4d58cfebd0"
            role="tabpanel" aria-labelledby="heading-4a0d779ed99e9badddd6af4d58cfebd0">
         
         
@@ -612,7 +612,7 @@
       
         <a href="/leetcode-blog/2026/04/11/LeetCode75-136-Single-Number/" title="LeetCode75-136-Single-Number"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-136-Single-Number</span>
         </a>
       
@@ -811,17 +811,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Queue"
         id="heading-722ad2d05ecf4868b00c5484b82fd808" role="tab" data-toggle="collapse" href="#collapse-722ad2d05ecf4868b00c5484b82fd808"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Queue
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-722ad2d05ecf4868b00c5484b82fd808"
+      <div class="category-collapse collapse " id="collapse-722ad2d05ecf4868b00c5484b82fd808"
            role="tabpanel" aria-labelledby="heading-722ad2d05ecf4868b00c5484b82fd808">
         
         
@@ -842,7 +842,7 @@
       
         <a href="/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/" title="LeetCode75-933-Number-Of-Recent-Calls"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-933-Number-Of-Recent-Calls</span>
         </a>
       
@@ -1222,13 +1222,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-933-Number-Of-Recent-Calls</h1>
+            <h1 id="seo-header">LeetCode75-136-Single-Number</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-思路总结"><a href="#🧠-思路总结" class="headerlink" title="🧠 思路总结"></a>🧠 思路总结</h2><p>当数据“按顺序来”，并且只关心“最早的什么时候该丢掉”，就用 <em><strong><code>Queue</code></strong></em>。<br>因为时间 t 严格递增，所以用队列保存所有 ping 的时间，每次新 ping 来了，把 t-3000 之前的时间全部弹掉，队列剩下的数量就是答案。</p>
-<h2 id="✅-代码（Java）"><a href="#✅-代码（Java）" class="headerlink" title="✅ 代码（Java）"></a>✅ 代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RecentCounter</span> &#123;<br>    Queue&lt;Integer&gt; queue;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RecentCounter</span><span class="hljs-params">()</span> &#123;<br>        queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">ping</span><span class="hljs-params">(<span class="hljs-type">int</span> t)</span> &#123;<br>        queue.offer(t);<br>        <span class="hljs-keyword">while</span> (!queue.isEmpty() &amp;&amp; queue.peek() &lt; t - <span class="hljs-number">3000</span>) &#123;<br>            queue.poll();<br>        &#125;<br>        <span class="hljs-keyword">return</span> queue.size();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><blockquote>
+<p>Use the bitwise XOR (^) operation to cancel out duplicate numbers.</p>
+</blockquote>
+<p>XOR has two important properties:</p>
+<ul>
+<li>a ^ a &#x3D; 0 → same numbers cancel out</li>
+<li>a ^ 0 &#x3D; a → zero does not affect the result</li>
+</ul>
+<p>Every number that appears twice cancels itself out. The only number left is the one that appears once. We can also reorder the ^’s left and right number to cancel the duplicate out :)</p>
+<h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">singleNumber</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums) &#123;<br>            ans ^= num;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -1256,7 +1264,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Queue/" class="category-chain-item">Queue</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/Bit-Manipulation/" class="category-chain-item">Bit Manipulation</a>
   
   
 
@@ -1275,9 +1283,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/leetcode-blog/tags/Queue/" class="print-no-link">#Queue</a>
+        <a href="/leetcode-blog/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/leetcode-blog/tags/Hash-Set/" class="print-no-link">#Hash Set</a>
+        <a href="/leetcode-blog/tags/Bit-Manipulation/" class="print-no-link">#Bit Manipulation</a>
       
     </div>
   
@@ -1289,8 +1297,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-933-Number-Of-Recent-Calls</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/02/09/LeetCode75-933-Number-Of-Recent-Calls/</div>
+      <div>LeetCode75-136-Single-Number</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/04/11/LeetCode75-136-Single-Number/</div>
     </div>
     <div class="license-meta">
       
@@ -1302,7 +1310,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月9日</div>
+          <div>2026年4月11日</div>
         </div>
       
       
@@ -1334,18 +1342,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/10/LeetCode75-649-Dota2/" title="LeetCode75-649-Dota2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-649-Dota2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/02/09/LeetCode75-394-Decode-String/" title="LeetCode75-394-Decode-String">
-                        <span class="hidden-mobile">LeetCode75-394-Decode-String</span>
+                      <a href="/leetcode-blog/2026/04/09/LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions/" title="LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions">
+                        <span class="hidden-mobile">LeetCode75-2300-Successful-Pairs-of-Spells-and-Potions</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1402,6 +1404,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -1594,6 +1602,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/leetcode-blog/js/local-search.js" ></script>
 
