@@ -19,23 +19,24 @@
   <meta name="author" content="Baowen Liu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🧠 Summary of Thoughts Review Foundation 1 (CSE 2321), Adjacency Matrix is a method to interpret graph.  For example: isConnected[i][j]. If 1, then i and j has edge to connect. Else (0), no edge betwe">
+    <meta name="description" content="动规五部曲 dp数组以及下标含义 递归公式 dp数组如何初始化 遍历顺序 打印dp数组  🧠 Summary of Thoughts可以先考虑简单一些的情况: How many ways that we can cover a 2 * N board using one type of domino (1 * 2)?  每个i列的时候，都可以是前面i-1的后面加上一个竖条。或者是i-2的后面补充">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode75-547-Number-of-Province">
-<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/04/07/LeetCode75-547-Number-of-Province/index.html">
+<meta property="og:title" content="LeetCode75-790-Domino">
+<meta property="og:url" content="https://powersixxx.github.io/leetcode-blog/2026/09/09/LeetCode75-790-Domino/index.html">
 <meta property="og:site_name" content="Baowen Leetcode Notes">
-<meta property="og:description" content="🧠 Summary of Thoughts Review Foundation 1 (CSE 2321), Adjacency Matrix is a method to interpret graph.  For example: isConnected[i][j]. If 1, then i and j has edge to connect. Else (0), no edge betwe">
+<meta property="og:description" content="动规五部曲 dp数组以及下标含义 递归公式 dp数组如何初始化 遍历顺序 打印dp数组  🧠 Summary of Thoughts可以先考虑简单一些的情况: How many ways that we can cover a 2 * N board using one type of domino (1 * 2)?  每个i列的时候，都可以是前面i-1的后面加上一个竖条。或者是i-2的后面补充">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-07T20:10:45.000Z">
-<meta property="article:modified_time" content="2026-04-07T20:15:41.699Z">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/2026/09/09/LeetCode75-790-Domino/simple.png">
+<meta property="og:image" content="https://powersixxx.github.io/leetcode-blog/2026/09/09/LeetCode75-790-Domino/domino2.png">
+<meta property="article:published_time" content="2026-09-10T01:08:13.000Z">
+<meta property="article:modified_time" content="2026-09-10T02:28:04.635Z">
 <meta property="article:author" content="Baowen Liu">
-<meta property="article:tag" content="Graph Theory">
-<meta property="article:tag" content="dfs">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://powersixxx.github.io/leetcode-blog/2026/09/09/LeetCode75-790-Domino/simple.png">
   
   
   
-  <title>LeetCode75-547-Number-of-Province - Baowen Leetcode Notes</title>
+  <title>LeetCode75-790-Domino - Baowen Leetcode Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LeetCode75-547-Number-of-Province"></span>
+            <span id="subtitle" data-typed-text="LeetCode75-790-Domino"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-07 16:10" pubdate>
-          2026年4月7日 下午
+        <time datetime="2026-09-09 21:08" pubdate>
+          2026年9月9日 晚上
         </time>
       </span>
     
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          700 字
+          661 字
         
       </span>
     
@@ -627,17 +628,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DP"
         id="heading-e2fca8135c2fadca093abd79a6b1c0d2" role="tab" data-toggle="collapse" href="#collapse-e2fca8135c2fadca093abd79a6b1c0d2"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         DP
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-e2fca8135c2fadca093abd79a6b1c0d2"
+      <div class="category-collapse collapse show" id="collapse-e2fca8135c2fadca093abd79a6b1c0d2"
            role="tabpanel" aria-labelledby="heading-e2fca8135c2fadca093abd79a6b1c0d2">
         
         
@@ -649,7 +650,7 @@
       
         <a href="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/" title="LeetCode75-790-Domino"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">LeetCode75-790-Domino</span>
         </a>
       
@@ -664,17 +665,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Graphs(DFS)"
         id="heading-b795155e752329a3ba87ccaf61c2feca" role="tab" data-toggle="collapse" href="#collapse-b795155e752329a3ba87ccaf61c2feca"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Graphs(DFS)
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-b795155e752329a3ba87ccaf61c2feca"
+      <div class="category-collapse collapse " id="collapse-b795155e752329a3ba87ccaf61c2feca"
            role="tabpanel" aria-labelledby="heading-b795155e752329a3ba87ccaf61c2feca">
         
         
@@ -686,7 +687,7 @@
       
         <a href="/leetcode-blog/2026/04/07/LeetCode75-547-Number-of-Province/" title="LeetCode75-547-Number-of-Province"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">LeetCode75-547-Number-of-Province</span>
         </a>
       
@@ -1305,16 +1306,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode75-547-Number-of-Province</h1>
+            <h1 id="seo-header">LeetCode75-790-Domino</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><blockquote>
-<p>Review Foundation 1 (CSE 2321), Adjacency Matrix is a method to interpret graph.</p>
-</blockquote>
-<p>For example: <code>isConnected[i][j]</code>. If 1, then i and j has edge to connect. Else (0), no edge between i and j.</p>
-<h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findCircleNum</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] isConnected)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> isConnected.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">boolean</span>[] visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[size];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size;i++) &#123;<br>            <span class="hljs-keyword">if</span> (!visited[i]) &#123;<br>                dfs(isConnected, visited, i);<br>                ans++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] isConnected, <span class="hljs-type">boolean</span>[] visited, <span class="hljs-type">int</span> i)</span> &#123;<br>        visited[i] = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; isConnected.length; j++) &#123;<br>            <span class="hljs-keyword">if</span> (isConnected[i][j] == <span class="hljs-number">1</span> &amp;&amp; !visited[j]) &#123;<br>                dfs(isConnected, visited, j);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="动规五部曲"><a href="#动规五部曲" class="headerlink" title="动规五部曲"></a>动规五部曲</h2><ol>
+<li>dp数组以及下标含义</li>
+<li>递归公式</li>
+<li>dp数组如何初始化</li>
+<li>遍历顺序</li>
+<li>打印dp数组</li>
+</ol>
+<h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><p>可以先考虑简单一些的情况: How many ways that we can cover a 2 * N board using one type of domino (1 * 2)?</p>
+<img src="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/simple.png" srcset="/leetcode-blog/img/loading.gif" lazyload class="">
+<p>每个<code>i</code>列的时候，都可以是前面<code>i-1</code>的后面加上一个竖条。或者是<code>i-2</code>的后面补充上一个2条横条。其实此时就转化成了fibonacci。</p>
+<p>同理，这道题目可以化简为如下图：</p>
+<img src="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/domino2.png" srcset="/leetcode-blog/img/loading.gif" lazyload class="">
+<p>这里有三个状态：</p>
+<ul>
+<li>dp[i][0]: 前 i 列整整齐齐、完全填满（第 i 列的上下两格都被盖住了），没有任何格子凸出到第 i+1 列</li>
+<li>dp[i][1]: 前 i-1 列已经填满，但第 i 列只有上面那格被填了,下面那格是空的（等着后面的瓷砖来填）</li>
+<li>dp[i][2]: 前 i-1 列已经填满，但第 i 列只有下面那格被填了，上面那格是空的</li>
+</ul>
+<h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">numTilings</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MOD</span> <span class="hljs-operator">=</span> <span class="hljs-number">1000000007</span>;<br>        <span class="hljs-type">long</span>[][] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">long</span>[n + <span class="hljs-number">1</span>][<span class="hljs-number">2</span>];<br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = dp[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            dp[i][<span class="hljs-number">0</span>] = (dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + dp[i - <span class="hljs-number">2</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">2</span> * dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;<br>            dp[i][<span class="hljs-number">1</span>] = (dp[i - <span class="hljs-number">2</span>][<span class="hljs-number">0</span>] + dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>) dp[n][<span class="hljs-number">0</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -1342,7 +1357,7 @@
   
     <span>></span>
     
-  <a href="/leetcode-blog/categories/LeetCode/75/Graphs-DFS/" class="category-chain-item">Graphs(DFS)</a>
+  <a href="/leetcode-blog/categories/LeetCode/75/DP/" class="category-chain-item">DP</a>
   
   
 
@@ -1358,15 +1373,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/leetcode-blog/tags/dfs/" class="print-no-link">#dfs</a>
-      
-        <a href="/leetcode-blog/tags/Graph-Theory/" class="print-no-link">#Graph Theory</a>
-      
-    </div>
-  
 </div>
 
 
@@ -1375,8 +1381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode75-547-Number-of-Province</div>
-      <div>https://powersixxx.github.io/leetcode-blog/2026/04/07/LeetCode75-547-Number-of-Province/</div>
+      <div>LeetCode75-790-Domino</div>
+      <div>https://powersixxx.github.io/leetcode-blog/2026/09/09/LeetCode75-790-Domino/</div>
     </div>
     <div class="license-meta">
       
@@ -1388,7 +1394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年4月7日</div>
+          <div>2026年9月9日</div>
         </div>
       
       
@@ -1420,18 +1426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/04/09/LeetCode75-374-Guess-Number/" title="LeetCode75-374-Guess-Number">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode75-374-Guess-Number</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/leetcode-blog/2026/03/14/LeetCode75-450-Delete-Node-in-BST/" title="LeetCode75-450-Delete-Node-in-BST">
-                        <span class="hidden-mobile">LeetCode75-450-Delete-Node-in-BST</span>
+                      <a href="/leetcode-blog/2026/04/11/LeetCode75-2336-Smallest-Number-in-Infinite-Set/" title="LeetCode75-2336-Smallest-Number-in-Infinite-Set">
+                        <span class="hidden-mobile">LeetCode75-2336-Smallest-Number-in-Infinite-Set</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

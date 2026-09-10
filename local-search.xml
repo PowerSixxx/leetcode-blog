@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>LeetCode75-790-Domino</title>
+    <link href="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/"/>
+    <url>/leetcode-blog/2026/09/09/LeetCode75-790-Domino/</url>
+    
+    <content type="html"><![CDATA[<h2 id="动规五部曲"><a href="#动规五部曲" class="headerlink" title="动规五部曲"></a>动规五部曲</h2><ol><li>dp数组以及下标含义</li><li>递归公式</li><li>dp数组如何初始化</li><li>遍历顺序</li><li>打印dp数组</li></ol><h2 id="🧠-Summary-of-Thoughts"><a href="#🧠-Summary-of-Thoughts" class="headerlink" title="🧠 Summary of Thoughts"></a>🧠 Summary of Thoughts</h2><p>可以先考虑简单一些的情况: How many ways that we can cover a 2 * N board using one type of domino (1 * 2)?</p><img src="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/simple.png" class=""><p>每个<code>i</code>列的时候，都可以是前面<code>i-1</code>的后面加上一个竖条。或者是<code>i-2</code>的后面补充上一个2条横条。其实此时就转化成了fibonacci。</p><p>同理，这道题目可以化简为如下图：</p><img src="/leetcode-blog/2026/09/09/LeetCode75-790-Domino/domino2.png" class=""><p>这里有三个状态：</p><ul><li>dp[i][0]: 前 i 列整整齐齐、完全填满（第 i 列的上下两格都被盖住了），没有任何格子凸出到第 i+1 列</li><li>dp[i][1]: 前 i-1 列已经填满，但第 i 列只有上面那格被填了,下面那格是空的（等着后面的瓷砖来填）</li><li>dp[i][2]: 前 i-1 列已经填满，但第 i 列只有下面那格被填了，上面那格是空的</li></ul><h2 id="✅-Code（Java）"><a href="#✅-Code（Java）" class="headerlink" title="✅ Code（Java）"></a>✅ Code（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">numTilings</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MOD</span> <span class="hljs-operator">=</span> <span class="hljs-number">1000000007</span>;<br>        <span class="hljs-type">long</span>[][] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">long</span>[n + <span class="hljs-number">1</span>][<span class="hljs-number">2</span>];<br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = dp[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            dp[i][<span class="hljs-number">0</span>] = (dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + dp[i - <span class="hljs-number">2</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">2</span> * dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;<br>            dp[i][<span class="hljs-number">1</span>] = (dp[i - <span class="hljs-number">2</span>][<span class="hljs-number">0</span>] + dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>) dp[n][<span class="hljs-number">0</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+      <category>75</category>
+      
+      <category>DP</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode75-2336-Smallest-Number-in-Infinite-Set</title>
     <link href="/leetcode-blog/2026/04/11/LeetCode75-2336-Smallest-Number-in-Infinite-Set/"/>
     <url>/leetcode-blog/2026/04/11/LeetCode75-2336-Smallest-Number-in-Infinite-Set/</url>
@@ -111,9 +134,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Array</tag>
       
       <tag>Binary Search</tag>
       
@@ -287,9 +310,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
       <tag>Simulation</tag>
       
@@ -481,11 +504,11 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>Array</tag>
       
       <tag>Bit Manipulation</tag>
       
@@ -514,8 +537,6 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Interview</tag>
       
       <tag>HashMap</tag>
@@ -523,6 +544,8 @@
       <tag>Sorting</tag>
       
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1126,9 +1149,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1254,9 +1277,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1397,9 +1420,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Interview</tag>
+      
+      <tag>Array</tag>
       
       <tag>Prefix</tag>
       
@@ -1459,9 +1482,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>HashMap</tag>
+      
+      <tag>Array</tag>
       
       <tag>Easy</tag>
       
